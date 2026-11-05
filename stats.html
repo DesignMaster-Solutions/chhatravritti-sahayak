@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chhatravritti Sahayak · Usage numbers</title>
+<meta name="description" content="Live, anonymous usage counts of Chhatravritti Sahayak: scholarship checks, schemes shown, checklists copied or shared, and Did you apply answers, by language and by day.">
+<meta name="theme-color" content="#1f2a5a">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="wrap top-row"><a class="brand" href="/"><span class="tick" aria-hidden="true"></span>Chhatravritti Sahayak</a><span>Usage numbers</span></div></header>
+<main class="wrap">
+<h1>Live usage, counted without personal data</h1>
+<p class="hint">Every number below is a real event from the public app. We count only the event name, the language and the day; for "schemes shown" also how many schemes one result listed. State, course, category, income, names and IP addresses are never stored. Raw data: <a href="/api/stats">/api/stats</a> (JSON).</p>
+<h2>Totals since <span id="since"></span></h2>
+<table class="stats" id="totals"><tbody></tbody></table>
+<h2>By language</h2>
+<table class="stats" id="langs"><thead><tr><th></th><th>Checks</th><th>Schemes</th><th>Copied</th><th>Shared</th><th>Applied: yes</th><th>Applied: not yet</th></tr></thead><tbody></tbody></table>
+<h2>By day (UTC)</h2>
+<table class="stats" id="days"><thead><tr><th>Day</th><th>Checks</th><th>Schemes</th><th>Copied</th><th>Shared</th><th>Applied: yes</th><th>Applied: not yet</th></tr></thead><tbody></tbody></table>
+<p class="hint">Checks = result lists shown. Schemes = schemes and state portals listed on those results, added up. Copied and Shared = taps on "Copy checklist" and "Send on WhatsApp". Applied = answers to "Did you apply?" on the result; they are not checked by us.</p>
+</main>
+<footer class="wrap foot"><p><strong>Free and open source</strong>: <a href="https://github.com/DesignMaster-Solutions/chhatravritti-sahayak">github.com/DesignMaster-Solutions/chhatravritti-sahayak</a></p></footer>
+<script type="module">
+const EVENTS = ['check', 'schemes', 'copy', 'share', 'applied_yes', 'applied_no'];
+const LABEL = { check: 'Checks', schemes: 'Schemes shown', copy: 'Checklists copied', share: 'Checklists shared on WhatsApp', applied_yes: 'Did you apply? Yes', applied_no: 'Did you apply? Not yet' };
+const { since, counts } = await (await fetch('/api/stats', { cache: 'no-store' })).json();
+document.getElementById('since').textContent = since;
+const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<th>${c}</th>` : `<td>${Number(c) || 0}</td>`)).join('')}</tr>`;
+document.querySelector('#totals tbody').innerHTML = EVENTS.map((e) => row([LABEL[e], counts[`total:${e}`]])).join('');
+const group = (prefix) => [...new Set(Object.keys(counts).filter((k) => k.startsWith(prefix)).map((k) => k.split(':')[1]))].sort();
+const NAME = { en: 'English', hi: 'Hindi' };
+document.querySelector('#langs tbody').innerHTML = group('lang:').filter((l) => NAME[l]).map((l) => row([NAME[l], ...EVENTS.map((e) => counts[`lang:${l}:${e}`])])).join('');
+document.querySelector('#days tbody').innerHTML = group('day:').filter((d) => /^\d{4}-\d\d-\d\d$/.test(d)).reverse().map((d) => row([d, ...EVENTS.map((e) => counts[`day:${d}:${e}`])])).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.git
+.gitignore
+.assetsignore
+.af-*
+.wrangler
+node_modules
+tests
+tools
+README.md
+BRIEF.md
+package.json
+wrangler.toml
+worker.js
+LICENSE
