@@ -13,7 +13,7 @@ the rule as written in the official guideline, with the paragraph and a link to 
 
 Entry for Code for a Billion 2026, track Education.
 
-Live: https://chhatravritti-sahayak.designmaster.workers.dev · usage numbers: https://chhatravritti-sahayak.designmaster.workers.dev/stats · demo video: `video/demo.mp4` (81 s)
+Live: https://chhatravritti-sahayak.designmaster.workers.dev · usage numbers: https://chhatravritti-sahayak.designmaster.workers.dev/stats · demo video (81 s): https://youtu.be/XbJt6j7-q34 (file: `video/demo.mp4`)
 
 ## What it does
 
