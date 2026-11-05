@@ -1,0 +1,440 @@
+{
+ "_about": "Real published decisions (High Courts and the Central Information Commission) where a student lost, or had delayed, a government post-matric scholarship. Every fact comes from the decision text saved in sources/<doc>.txt; null means the decision does not say it. 'answers' are what the student would enter on the app's screens, only from facts in the decision (income is never stated, so it is null). 'warnings' are i18n keys the app shows on every result that address what stopped the money; 'replay' is what rules.js gives for those answers on 2026-11-05. Collected from indiankanoon.org on 2026-11-05.",
+ "cases": [
+  {
+   "id": "up-hc-2020-jeet-ram",
+   "url": "https://indiankanoon.org/doc/23658662/",
+   "source": "sources/23658662.txt",
+   "forum": "Allahabad High Court, Lucknow Bench",
+   "case_number": "Misc. Single No. 7106 of 2015",
+   "decision_date": "2020-02-12",
+   "state": "Uttar Pradesh",
+   "scheme": "Dasmottar Chhatravriti Yojana (UP post-matric scheme for SC students)",
+   "course": "engineering (institute of engineering and technology; course not named)",
+   "category": "SC",
+   "students": 232,
+   "blocked_by": "name_or_documents",
+   "what_stopped_the_money": "District Scholarship Committee rejected 232 of 449 SC students of one institute for a mismatch in a certificate, the income amount, the High School roll number or the account holder name, or suspected fee details",
+   "academic_year": null,
+   "outcome": "no relief: petition disposed of with liberty to appeal to the District Magistrate; none of the students had used that appeal",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": null,
+   "quote": "rejected by District Scholarship Committee due to flaw (Caste/Income/Domicile Certificate or Income Amount or High school Roll Number or Account Holder Name not matched or suspected fee details)",
+   "quote_where": "reasons recorded in the order",
+   "answers": {
+    "course": null,
+    "state": "UP",
+    "cats": [
+     "sc"
+    ],
+    "income": null,
+    "renewal": null
+   },
+   "warnings": [
+    "chk2_a",
+    "chk1_a"
+   ],
+   "replay": {
+    "fits": null,
+    "routes": [
+     {
+      "cat": "sc",
+      "where": "state"
+     }
+    ]
+   },
+   "divergence": "The app sends a UP SC student to the state portal and lists no documents for it (documents are listed only for NSP schemes). The name check covers the mark sheet, father's name and roll number, and the bank check covers the account; neither mentions the caste, income or domicile certificate by name. The order also shows an appeal to the District Magistrate (Clause 17(iv)) that none of the 232 students used; the app does not mention it.",
+   "students_in_batch": 449
+  },
+  {
+   "id": "up-hc-2022-divya-singh",
+   "url": "https://indiankanoon.org/doc/16828818/",
+   "source": "sources/16828818.txt",
+   "forum": "Allahabad High Court, Lucknow Bench",
+   "case_number": "Writ C No. 325 of 2019",
+   "decision_date": "2022-08-29",
+   "state": "Uttar Pradesh",
+   "scheme": "Post-matric Scholarship and Fee-reimbursement Scheme 2015-16 (UP)",
+   "course": "MBA (first year, 2015)",
+   "category": null,
+   "students": 1,
+   "blocked_by": "name_or_documents",
+   "what_stopped_the_money": "the same income certificate was used by her and her brother, flagged as showing a different father's name; the institute's clarification was ignored",
+   "academic_year": "2015-16",
+   "outcome": "rejection quashed; State directed to pay within two months",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": 7,
+   "quote": "on the ground that same income certificate was being used with different father's name",
+   "quote_where": "facts",
+   "answers": {
+    "course": "pg",
+    "state": "UP",
+    "cats": null,
+    "income": null,
+    "renewal": false
+   },
+   "warnings": [
+    "chk2_a",
+    "chk2_c"
+   ],
+   "replay": null,
+   "divergence": "The app's name check says father's name exactly as on the mark sheet; it does not say the income certificate must carry the same father's name, nor that each sibling should hold his or her own certificate. The order does not state the category, so the scheme list is not replayed."
+  },
+  {
+   "id": "up-hc-2023-abhishek-mishra",
+   "url": "https://indiankanoon.org/doc/94403196/",
+   "source": "sources/94403196.txt",
+   "forum": "Allahabad High Court, Lucknow Bench (Division Bench)",
+   "case_number": "Special Appeal Defective No. 82 of 2023 (from Writ C No. 2974 of 2022)",
+   "decision_date": "2023-02-20",
+   "state": "Uttar Pradesh",
+   "scheme": "UP post-matric scholarship and fee reimbursement for General category students (2011 Government Order)",
+   "course": "LL.M., second year (renewal), Lucknow University",
+   "category": "General",
+   "students": 1,
+   "blocked_by": "institute_verification",
+   "what_stopped_the_money": "the portal showed \"Blocked due to the result not filed by the student, and not forwarded by the Institution\" even though he corrected the result on 16.2.2022, before the last date of 21.02.2022, and the District Level Committee verified it on 11.3.2022",
+   "academic_year": "2021-22",
+   "outcome": "State appeal disposed of; he is to be paid within six weeks",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": 2,
+   "quote": "\"Blocked due to the result not filed by the student, and not forwarded by the Institution.\"",
+   "quote_where": "para 10",
+   "answers": {
+    "course": "pg",
+    "state": "UP",
+    "cats": [
+     "general"
+    ],
+    "income": null,
+    "renewal": true
+   },
+   "warnings": [
+    "chk3_a",
+    "chk3_b"
+   ],
+   "replay": {
+    "fits": [],
+    "routes": []
+   },
+   "divergence": "The app lists no scheme for him: it covers the NSP lists and the welfare categories, not the UP state scheme for General category students. The three checks still appear on his result, so the institute-verification warning would have reached him, but no scheme card, date or portal link would."
+  },
+  {
+   "id": "pb-hc-2024-malkit-kaur",
+   "url": "https://indiankanoon.org/doc/63251370/",
+   "source": "sources/63251370.txt",
+   "forum": "Punjab and Haryana High Court",
+   "case_number": "CWP-11726-2021",
+   "decision_date": "2024-07-16",
+   "state": "Punjab",
+   "scheme": "Post Matric Scholarship for SC students (centrally sponsored)",
+   "course": "LLB (three years), admitted 2018",
+   "category": "SC",
+   "students": 1,
+   "blocked_by": "portal_or_deadline",
+   "what_stopped_the_money": "applied on paper through the college because the Welfare Department portal refused applicants over 40; the State rejected it only because it was not made online",
+   "academic_year": "2018-19",
+   "outcome": "State directed to consider the paper application without rejecting it for being offline and pay within two months if entitled",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": 6,
+   "quote": "the petitioner was not granted the aforesaid benefit only on the ground that the petitioner did not apply through online mode on the portal and instead she had given the aforesaid application physically i.e. through offline mode.",
+   "quote_where": "para 2",
+   "answers": {
+    "course": "ug",
+    "state": "PB",
+    "cats": [
+     "sc"
+    ],
+    "income": null,
+    "renewal": false
+   },
+   "warnings": [
+    "where_nsp",
+    "dl_open",
+    "chk3_a"
+   ],
+   "replay": {
+    "fits": [
+     "pms_sc",
+     "top_sc"
+    ],
+    "routes": []
+   },
+   "divergence": "In 2018 Punjab took applications on its own Welfare Department portal; the 2026-27 NSP list the app reads now carries Punjab PMS-SC, so the app sends her to NSP with the last date. What blocked her was a bug in the portal (the age field), which no advice to the student prevents; the app only tells her that online on the right portal, by the date, is the route the State enforces."
+  },
+  {
+   "id": "up-hc-2024-vaishali-ravi",
+   "url": "https://indiankanoon.org/doc/125008292/",
+   "source": "sources/125008292.txt",
+   "forum": "Allahabad High Court",
+   "case_number": "Writ C No. 31452 of 2024",
+   "decision_date": "2024-09-20",
+   "state": "Uttar Pradesh",
+   "scheme": "Post-matric scholarship of the Social Welfare Department (SC/ST)",
+   "course": "BAMS, fourth year (renewal; paid for the first three years)",
+   "category": "SC",
+   "students": 1,
+   "blocked_by": "institute_verification",
+   "what_stopped_the_money": "she applied in time; the institution did not forward her application (it said the form was not shown on the portal and sent paper copies instead)",
+   "academic_year": "2020-21",
+   "outcome": "rejection quashed; State directed to pay within six weeks",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": 4,
+   "quote": "rejected the claim of the petitioner for grant of scholarship for the academic session 2020-21 on the ground that the institution had not forwarded the documents.",
+   "quote_where": "para 8",
+   "answers": {
+    "course": "ug",
+    "state": "UP",
+    "cats": [
+     "sc"
+    ],
+    "income": null,
+    "renewal": true
+   },
+   "warnings": [
+    "chk3_a",
+    "chk3_b"
+   ],
+   "replay": {
+    "fits": [
+     "top_sc"
+    ],
+    "routes": [
+     {
+      "cat": "sc",
+      "where": "state"
+     }
+    ]
+   },
+   "divergence": "UP runs PMS-SC on its own portal, which the app links as \"not verified\" with no dates, so the warning she would get is the general one (follow up with the institute before its date), not a dated institute deadline."
+  },
+  {
+   "id": "hp-hc-2023-jasveer-kaur",
+   "url": "https://indiankanoon.org/doc/44491279/",
+   "source": "sources/44491279.txt",
+   "forum": "Himachal Pradesh High Court (Division Bench)",
+   "case_number": "CWP No. 7944 of 2021 with CWP Nos. 5243 and 7947 of 2021",
+   "decision_date": "2023-05-10",
+   "state": "Himachal Pradesh",
+   "scheme": "Post-matric scholarships for OBC, SC and ST students",
+   "course": "not stated (students of private universities and institutions)",
+   "category": "OBC, SC and ST",
+   "students": 27,
+   "blocked_by": "bank_dbt",
+   "what_stopped_the_money": "students were first refused for not uploading documents before the portal closed on 31 March 2021; after the Court stepped in, 1315 of 1342 were paid through PFMS and 27 were held back for a mismatch in bank account details, 21 of them still unpaid",
+   "academic_year": null,
+   "outcome": "pending: officer ordered to produce the records of the 21 students",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": null,
+   "quote": "the payment could not be released due to mismatch of their bank account details",
+   "quote_where": "order of 10.05.2023",
+   "answers": {
+    "course": null,
+    "state": "HP",
+    "cats": [
+     "sc"
+    ],
+    "income": null,
+    "renewal": null
+   },
+   "warnings": [
+    "chk1_a",
+    "chk1_e",
+    "dl_open"
+   ],
+   "replay": null,
+   "divergence": "The order does not give the course of each student, so the scheme list is not replayed. The Court noted the same accounts had received two years of scholarship and were Aadhaar linked; the app's bank check would not have caught a mismatch the department itself could not explain.",
+   "students_in_batch": 1342
+  },
+  {
+   "id": "up-hc-2023-amit-yadav",
+   "url": "https://indiankanoon.org/doc/50156077/",
+   "source": "sources/50156077.txt",
+   "forum": "Allahabad High Court, Lucknow Bench (Division Bench)",
+   "case_number": "Special Appeal Defective No. 48 of 2023 (from Writ A No. 18995 of 2019)",
+   "decision_date": "2023-04-12",
+   "state": "Uttar Pradesh",
+   "scheme": "UP post-matric scholarship (Other Backward Category Welfare Department)",
+   "course": "B.Tech, Dr. Ram Manohar Lohiya (Awadh) University",
+   "category": "OBC",
+   "students": 1,
+   "blocked_by": "bank_dbt",
+   "what_stopped_the_money": "Rs 54,400 was sanctioned; only Rs 4,400 reached his account because the bank had set a credit limit on it, and the rest went back to the State",
+   "academic_year": "2018-19",
+   "outcome": "State appeal dismissed; the single judge had ordered the State to pay",
+   "amount_stuck_rs": 50000,
+   "years_from_academic_year_to_decision": 5,
+   "quote": "\"amount exceed limits set on account by Bank for credit.\"",
+   "quote_where": "facts",
+   "answers": {
+    "course": "ug",
+    "state": "UP",
+    "cats": [
+     "obc"
+    ],
+    "income": null,
+    "renewal": null
+   },
+   "warnings": [
+    "chk1_d",
+    "chk1_a"
+   ],
+   "replay": {
+    "fits": [
+     "top_obc_college"
+    ],
+    "routes": [
+     {
+      "cat": "obc",
+      "where": "state"
+     }
+    ]
+   },
+   "divergence": null
+  },
+  {
+   "id": "dl-hc-2026-sahil-arsh",
+   "url": "https://indiankanoon.org/doc/20095049/",
+   "source": "sources/20095049.txt",
+   "forum": "Delhi High Court",
+   "case_number": "W.P.(C) 5865/2026",
+   "decision_date": "2026-07-07",
+   "state": "Delhi",
+   "scheme": "not named (a scheme on the National Scholarship Portal)",
+   "course": "not stated (second and third academic years)",
+   "category": null,
+   "students": 1,
+   "blocked_by": "portal_or_deadline",
+   "what_stopped_the_money": "second- and third-year payments did not come; his petition named Aadhaar and PFMS discrepancies; by the hearing the online window for 2025-26 had closed, so he was told to apply offline through the Institute Nodal Officer",
+   "academic_year": "2024-25",
+   "outcome": "disposed of: 2024-25 paid on 04.07.2026; 2025-26 to go offline through the institute",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": 2,
+   "quote": "since the online submission of applications is closed, the petitioner may submit an offline application to the Institute Nodal Officer",
+   "quote_where": "para 3",
+   "answers": {
+    "course": null,
+    "state": "DL",
+    "cats": null,
+    "income": null,
+    "renewal": true
+   },
+   "warnings": [
+    "dl_open",
+    "chk1_a",
+    "chk3_a"
+   ],
+   "replay": null,
+   "divergence": "The order records his prayer about Aadhaar or PFMS but no finding on it, so that cause is not counted. Category and course are not stated, so the scheme list is not replayed."
+  },
+  {
+   "id": "cic-2026-raju-kumar",
+   "url": "https://indiankanoon.org/doc/77200768/",
+   "source": "sources/77200768.txt",
+   "forum": "Central Information Commission",
+   "case_number": "CIC/MOSJE/A/2025/643841",
+   "decision_date": "2026-07-16",
+   "state": null,
+   "scheme": "not named (Ministry of Social Justice, OBC category, slots per institute)",
+   "course": "not stated (NIT Nagaland)",
+   "category": "OBC",
+   "students": 1,
+   "blocked_by": "institute_verification",
+   "what_stopped_the_money": "not in the merit list: the institute had 21 slots but verified 62 students, and the Ministry paid only the 21 in the institute's annexure",
+   "academic_year": null,
+   "outcome": "scholarship received before the hearing; appeal withdrawn",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": null,
+   "quote": "The NIT Nagaland has been allotted 21 slots while the institute verified 62 beneficiaries which exceeds the allotted slots.",
+   "quote_where": "para 3 (First Appellate Authority)",
+   "answers": {
+    "course": null,
+    "state": null,
+    "cats": [
+     "obc"
+    ],
+    "income": null,
+    "renewal": null
+   },
+   "warnings": [
+    "chk3_a"
+   ],
+   "replay": null,
+   "divergence": "The app tells the student to follow up with the institute on verification; it does not say that some central schemes have a fixed number of slots per institute and that verification beyond them is not paid. The application ID begins with BR, but the order does not state the student's state, so the scheme list is not replayed."
+  },
+  {
+   "id": "hr-hc-2024-sawan-kumar",
+   "url": "https://indiankanoon.org/doc/186382463/",
+   "source": "sources/186382463.txt",
+   "forum": "Punjab and Haryana High Court",
+   "case_number": "CWP-6700-2022",
+   "decision_date": "2024-04-16",
+   "state": "Haryana",
+   "scheme": "Post Matric Scholarship (SC)",
+   "course": "M.Com, distance education, 2017-2019",
+   "category": "SC",
+   "students": 1,
+   "blocked_by": "not_stated",
+   "what_stopped_the_money": "the university withheld his M.Com result (\"RL-Fee\") from 19.11.2019 to 20.01.2022 because his post-matric scholarship had not reached it; without the degree, his selection for a government post in the SC category was rejected",
+   "academic_year": null,
+   "outcome": "the Commission was directed to consider him for the post kept vacant; the decision does not say why the scholarship was late",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": null,
+   "quote": "his result was declared as 859/1500/RL-Fee on 19.11.2019 due to not receiving the Post Matric Scholarship.",
+   "quote_where": "para 5 (university certificate)",
+   "answers": {
+    "course": "pg",
+    "state": "HR",
+    "cats": [
+     "sc"
+    ],
+    "income": null,
+    "renewal": true
+   },
+   "warnings": [
+    "after_1"
+   ],
+   "replay": {
+    "fits": [
+     "pms_sc",
+     "top_sc"
+    ],
+    "routes": []
+   },
+   "divergence": "The decision does not say what held the scholarship up, so no check can be matched to it. It shows what a late scholarship costs: a withheld degree and a lost job selection."
+  },
+  {
+   "id": "cic-2026-ashant-dudhe",
+   "url": "https://indiankanoon.org/doc/197120480/",
+   "source": "sources/197120480.txt",
+   "forum": "Central Information Commission",
+   "case_number": "CIC/MOSJE/A/2025/641703",
+   "decision_date": "2026-08-04",
+   "state": "Maharashtra",
+   "scheme": "Post Matric Scholarship (the Ministry replied under the PMS for SC students)",
+   "course": "engineering (St. Vincent Pallotti College of Engineering and Technology, Nagpur)",
+   "category": null,
+   "students": 1,
+   "blocked_by": "not_stated",
+   "what_stopped_the_money": "applied 09/11/2022; second instalment approved 30/11/2023; first instalment credited only 01/08/2024; the pending amount arrived before the July 2026 hearing",
+   "academic_year": "2022-23",
+   "outcome": "paid before the hearing; appeal withdrawn",
+   "amount_stuck_rs": null,
+   "years_from_academic_year_to_decision": 4,
+   "quote": "I have now received the pending scholarship amount.",
+   "quote_where": "para 4",
+   "answers": {
+    "course": null,
+    "state": null,
+    "cats": null,
+    "income": null,
+    "renewal": null
+   },
+   "warnings": [
+    "after_1"
+   ],
+   "replay": null,
+   "divergence": "The Ministry's reply gives no reason for the delay (central share goes by DBT to the Aadhaar-seeded account after the State releases its share), so no check can be matched to it. Category is not stated in the order."
+  }
+ ]
+}

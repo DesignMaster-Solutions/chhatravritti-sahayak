@@ -91,6 +91,18 @@ Each test was seen failing against a deliberately broken rule (changed limit, `<
 CSSS offered to fresh students, close date off by one, a guessed portal, the income filter removed)
 before it was trusted.
 
+## Real cases
+
+11 published High Court and Information Commission decisions (268 students, 6 States) where a student lost or
+waited 2 to 7 years for a post-matric scholarship. 9 name what stopped the money: a bank account with a credit
+limit or details PFMS would not match, a father's name or account holder name that did not match, an institute
+that did not forward or over-verified, a paper application or a closed online window. Each of those is one of
+the app's 3 checks or its last date. `tests/real-cases.test.mjs` checks each quote word for word, that the
+matching warning is on the result screen in English and Hindi, and replays the student's answers through
+`rules.js`; it was seen failing against 5 mutants (a warning taken off the screen, its wording changed, Punjab
+SC moved off NSP, a word changed in a quote). Table, numbers, the 10 places the app reads a case differently,
+and limits: [`evidence/real-cases`](evidence/real-cases/README.md).
+
 ## Sources (all read on 05 Nov 2026)
 
 G = https://scholarships.gov.in/public/schemeGuidelines/ · F = https://scholarships.gov.in/public/FAQ/
