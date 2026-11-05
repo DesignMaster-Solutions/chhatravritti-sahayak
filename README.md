@@ -154,6 +154,12 @@ or income limits.
   crore SC students over 5 years (PIB PRID 1682967, 23 Dec 2020). Nearly 48 lakh SC students a
   year; 48,04,208 beneficiaries and Rs 5,562.23 crore of central assistance in 2024-25 (PIB PRID
   2287841, 22 Jul 2026).
+- Post-matric scholarship for SC students, 2021-22, as told to Parliament on 26 Jul 2022: **64,01,641
+  applied and 42,53,886 had received it**; 3,13,403 applications had been rejected by State Governments,
+  and "the details of rejected scholarship is not maintained on National Scholarship Portal" (Ministry of
+  Social Justice & Empowerment, PIB PRID 1844993,
+  <https://www.pib.gov.in/PressReleasePage.aspx?PRID=1844993>). The Ministry does not keep the reasons there, so
+  the app shows the checks that the guidelines, FAQs and SOP tie to the money before the student applies.
 - Retention at secondary level was 51.9% in 2025-26 and the dropout rate 7.0% (UDISE+ 2025-26,
   PIB PRID 2282141). We found no source that links a number of dropouts to scholarship money, so
   we claim none.
