@@ -184,3 +184,70 @@ test('Ishan Uday and NMMS need their own answers; Top Class Schools only in Clas
   assert.ok(!ids({ course: 'ug', cats: ['obc'] }).includes('top_obc_school'));
   assert.ok(!ids({ state: 'UP', jk12: true }).includes('jkl'));
 });
+
+// ---- Text: both languages complete, no promise of money, no amounts, no em dash. ----
+import { STRINGS, t } from '../i18n.js';
+import { readFileSync, statSync } from 'node:fs';
+import { CATS, COURSES } from '../rules.js';
+
+const root = new URL('../', import.meta.url);
+const read = (f) => readFileSync(new URL(f, root), 'utf8');
+
+test('en and hi have exactly the same keys, none empty, same placeholders', () => {
+  const en = Object.keys(STRINGS.en).sort();
+  const hi = Object.keys(STRINGS.hi).sort();
+  assert.deepEqual(hi, en);
+  const ph = (s) => (s.match(/\{\w+\}/g) || []).sort().join();
+  for (const k of en) {
+    assert.ok(STRINGS.en[k].trim() && STRINGS.hi[k].trim(), k);
+    assert.equal(ph(STRINGS.hi[k]), ph(STRINGS.en[k]), k);
+  }
+});
+
+test('every key the rules and the app ask for exists', () => {
+  const need = [
+    ...RULES.map((r) => `r_${r.id}`), ...RULES.flatMap((r) => r.notes || []),
+    ...CATS.map((c) => `cat_${c}`), ...COURSES.map((c) => `course_${c}`),
+    ...['csss', 'pms_sc', 'pms_pwd'].flatMap((id) => [...documentsFor(id, true).keys, ...documentsFor(id, false).keys]),
+    'n_minority', 'n_csss_fresh', 'n_csss_renew',
+  ];
+  const app = read('app.js');
+  for (const m of app.matchAll(/L\('(\w+)'/g)) need.push(m[1]);
+  for (const m of app.matchAll(/\['(\w+)', \(\) =>/g)) need.push(`x_${m[1]}`);
+  for (const m of read('index.html').matchAll(/data-t="(\w+)"/g)) need.push(m[1]);
+  for (const k of new Set(need)) assert.ok(k in STRINGS.en, k);
+});
+
+test('no text in en or hi promises money or states an amount', () => {
+  const PROMISE = /you will get|you'll get|you get Rs|guarantee|eligible for sure|surely eligible|will receive|आपको मिलेगा|आपको मिलेगी|मिलना तय|पक्का मिलेगा|ज़रूर मिलेगा|गारंटी/i;
+  const AMOUNT = /(\bRs\.?|₹|\bINR|रुपये|रु\.)\s*\d|\d[\d,]*\s*(rupees|lakh|crore|लाख|करोड़)/i;
+  for (const lang of ['en', 'hi']) {
+    for (const [k, s] of Object.entries(STRINGS[lang])) {
+      assert.doesNotMatch(s, PROMISE, `${lang}.${k}`);
+      assert.doesNotMatch(s, AMOUNT, `${lang}.${k}`);
+    }
+  }
+  // Cards say "may fit".
+  assert.match(t('en', 'may_fit'), /may fit/i);
+  assert.doesNotMatch(read('app.js') + read('index.html'), /eligible for sure|you are eligible/i);
+});
+
+test('no em dash and no emoji in any visible text', () => {
+  const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
+  for (const lang of ['en', 'hi']) {
+    for (const [k, s] of Object.entries(STRINGS[lang])) {
+      assert.ok(!s.includes('—'), `${lang}.${k}`);
+      assert.doesNotMatch(s, EMOJI, `${lang}.${k}`);
+    }
+  }
+  for (const f of ['index.html', 'stats.html', 'app.js']) {
+    assert.ok(!read(f).includes('—'), f);
+    assert.doesNotMatch(read(f), EMOJI, f);
+  }
+});
+
+test('app code apart from nsp-data.js is under 100 KB', () => {
+  const files = ['index.html', 'app.js', 'rules.js', 'i18n.js', 'styles.css'];
+  const total = files.reduce((n, f) => n + statSync(new URL(f, root)).size, 0);
+  assert.ok(total < 100 * 1024, `${total} bytes`);
+});
