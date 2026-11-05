@@ -1,0 +1,117 @@
+{
+ "brand": "Chhatravritti Sahayak · open source (MIT) · Design Master Solutions LLC",
+ "voice": "Samantha",
+ "rate": 196,
+ "bg": "#1f2a52",
+ "accent": "#e8b931",
+ "out": "demo.mp4",
+ "scenes": [
+  {
+   "title": "Which scholarship can I apply for?",
+   "lines": [
+    "A poor student in India asks:",
+    "which government scholarship",
+    "can I apply for this year,",
+    "where, by when, and with",
+    "which papers?",
+    "",
+    "Free, English and Hindi,",
+    "on a cheap phone."
+   ],
+   "shots": [
+    "shots/phone-01-course.png"
+   ],
+   "say": "A poor student in India asks: which government scholarship can I apply for this year, where, by when, and with which papers? Chhatravritti Sahayak answers it for free, in English and Hindi, on a cheap phone."
+  },
+  {
+   "title": "Six short questions",
+   "lines": [
+    "1. Course",
+    "2. State",
+    "3. Category (SC, ST, OBC, EBC,",
+    "    DNT, minority, disability)",
+    "4. Family income",
+    "5. First time or renewal",
+    "6. Girl or orphan (optional)",
+    "",
+    "Nothing is stored or sent."
+   ],
+   "shots": [
+    "shots/phone-02-category.png"
+   ],
+   "say": "Six short questions, one per screen: course, state, category, family income, first time or renewal. Nothing the student answers is stored or sent."
+  },
+  {
+   "title": "Schemes that may fit, with dates",
+   "lines": [
+    "Rules read in each official",
+    "guideline, with the paragraph.",
+    "",
+    "Dates from the 2026-27 list on",
+    "scholarships.gov.in, read 5 Nov.",
+    "",
+    "\"May fit\", never a promise.",
+    "No amounts."
+   ],
+   "shots": [
+    "shots/phone-03-result.png"
+   ],
+   "say": "The result lists the schemes that may fit. Each rule comes from the official guideline, with the paragraph, and each date from this year's list on the National Scholarship Portal. It says may fit, never a promise, and shows no amounts."
+  },
+  {
+   "title": "NSP or the state portal",
+   "lines": [
+    "Some states run their own",
+    "portal. Uttar Pradesh SC",
+    "goes to the state portal,",
+    "marked \"not verified by us\".",
+    "",
+    "No portal is ever guessed."
+   ],
+   "shots": [
+    "shots/desktop-result.png"
+   ],
+   "say": "Some states run their own portal. A student from Uttar Pradesh is sent to the state portal, marked as not verified by us. Where we found no official portal, the tool says so and guesses nothing."
+  },
+  {
+   "title": "What blocks the money",
+   "lines": [
+    "Documents checklist, One Time",
+    "Registration with Aadhaar,",
+    "the Aadhaar-seeded bank",
+    "account, status and helplines.",
+    "",
+    "Copy it, or send it",
+    "on WhatsApp."
+   ],
+   "shots": [
+    "shots/phone-04-actions.png"
+   ],
+   "say": "Then the documents, the One Time Registration with Aadhaar, the bank account that receives the money, status and helplines. The student can copy it or send it on WhatsApp."
+  },
+  {
+   "title": "Hindi, and tested",
+   "lines": [
+    "One tap for Hindi.",
+    "",
+    "42 tests with node --test,",
+    "each seen failing against",
+    "a broken rule first.",
+    "",
+    "Built in the AgentFoundry IDE",
+    "with Claude Code."
+   ],
+   "shots": [
+    "shots/phone-05-hindi.png"
+   ],
+   "mono_cmd": "node --test",
+   "mono_cwd": "..",
+   "mono_grep": [
+    "ℹ tests",
+    "ℹ pass",
+    "ℹ fail"
+   ],
+   "say": "One tap switches to Hindi. Forty two tests check every income ceiling, the dates, the portals and the text, and each was seen failing against a broken rule. It was built in the AgentFoundry IDE with Claude Code, and it is open source."
+  }
+ ]
+}
