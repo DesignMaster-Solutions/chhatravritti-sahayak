@@ -13,6 +13,8 @@ the rule as written in the official guideline, with the paragraph and a link to 
 
 Entry for Code for a Billion 2026, track Education.
 
+Live: https://chhatravritti-sahayak.designmaster.workers.dev · usage numbers: https://chhatravritti-sahayak.designmaster.workers.dev/stats · demo video: `video/demo.mp4` (81 s)
+
 ## What it does
 
 One question per screen: course now (Class 11-12, ITI/diploma, UG, PG, PhD) → state or UT of
@@ -58,7 +60,7 @@ python3 -m http.server 8765   # or just the static app, without the counter
 Add `?nostats` to the URL to keep tests and demo recordings out of the public numbers.
 
 Deploy (Cloudflare Workers, static assets plus one Durable Object for the counter):
-`npx wrangler deploy`. Not deployed by this build.
+`npx wrangler deploy`. Live on Cloudflare Workers since 05 Nov 2026.
 
 Refresh the dates: `python3 tools/nsp_snapshot.py` reads the three "Schemes on NSP" lists on
 scholarships.gov.in and rewrites `nsp-data.js`; change `CHECKED` in it, the app shows that date
@@ -163,6 +165,11 @@ counts only the event name (`check`, `schemes` with how many were shown, `copy`,
 `applied_yes`, `applied_no`), the language and the day. Live numbers: `/stats.html`, raw JSON at
 `/api/stats`.
 
+## Hindi
+
+The Hindi text was written by an AI agent (Claude Code) from the English strings and has not yet
+been reviewed by a native speaker. Corrections are welcome as issues or pull requests.
+
 ## How it was built
 
 In the **AgentFoundry IDE**: this folder was opened in AgentFoundry and **Claude Code** was run from
@@ -174,7 +181,8 @@ against the brief, kept it, tightened two points (no Tamil Nadu portal guessed f
 degree and diploma rows cite their own PDF), then wrote the tests first (`node --test`), the
 bilingual strings, the Worker and stats page (same shape as Ghar Ki Hawa), the UI and this README,
 committing each step with conventional commits. The tests were mutation-checked, and the flow was
-clicked through in a real Chrome at desktop width and at 360 px, in English and Hindi.
+clicked through in a real Chrome at desktop width and at 360 px, in English and Hindi, and after
+the deploy on a real Android phone (Redmi Note 14 Pro, 375 px) and a desktop browser.
 
 ## License
 
