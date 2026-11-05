@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chhatravritti Sahayak · Which scholarship can you apply for?</title>
+<meta name="description" content="Free, open-source helper for students in India: government scholarships for Class 11 and above that may fit you this year, where to apply, by when, which documents, in English and Hindi.">
+<meta name="theme-color" content="#1f2a5a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='2' fill='%23fffdf6'/%3E%3Cpath d='M0 5h16M0 9h16M0 13h16' stroke='%23b9cbe3'/%3E%3Cpath d='M3.5 0v16' stroke='%23d0473f'/%3E%3Cpath d='M6 11l2.5 2.5L14 6' fill='none' stroke='%231f2a5a' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="/"><span class="tick" aria-hidden="true"></span><span data-t="app_name">Chhatravritti Sahayak</span></a>
+    <button type="button" id="lang" class="lang" lang="hi">हिंदी</button>
+  </div>
+  <div class="wrap"><p class="tagline" data-t="tagline"></p></div>
+</header>
+
+<main class="wrap" id="main">
+  <p class="progress" id="progress" aria-live="polite"></p>
+
+  <section class="step" data-step="course">
+    <h1 tabindex="-1" data-t="q_course"></h1>
+    <div class="options" id="course-list"></div>
+  </section>
+
+  <section class="step" data-step="state" hidden>
+    <h1 tabindex="-1" data-t="q_state"></h1>
+    <label class="field"><span class="sr" data-t="state_pick"></span><select id="state"></select></label>
+  </section>
+
+  <section class="step" data-step="cats" hidden>
+    <h1 tabindex="-1" data-t="q_cats"></h1>
+    <p class="hint" data-t="cats_hint"></p>
+    <div class="options" id="cat-list"></div>
+  </section>
+
+  <section class="step" data-step="income" hidden>
+    <h1 tabindex="-1" data-t="q_income"></h1>
+    <p class="hint" data-t="income_hint"></p>
+    <div class="options" id="income-list"></div>
+  </section>
+
+  <section class="step" data-step="renewal" hidden>
+    <h1 tabindex="-1" data-t="q_renewal"></h1>
+    <div class="options" id="renewal-list"></div>
+  </section>
+
+  <section class="step" data-step="more" hidden>
+    <h1 tabindex="-1" data-t="q_more"></h1>
+    <p class="hint" data-t="more_hint"></p>
+    <div class="options" id="more-list"></div>
+  </section>
+
+  <section class="step" data-step="result" hidden>
+    <div id="result"></div>
+  </section>
+
+  <p class="msg" id="msg" role="alert"></p>
+  <nav class="nav" id="nav">
+    <button type="button" class="link" id="back" data-t="back"></button>
+    <button type="button" class="primary" id="next" data-t="next"></button>
+  </nav>
+</main>
+
+<footer class="wrap foot">
+  <p><strong data-t="foot_free"></strong>: <a href="https://github.com/DesignMaster-Solutions/chhatravritti-sahayak">github.com/DesignMaster-Solutions/chhatravritti-sahayak</a> · <a href="/stats.html" data-t="usage"></a></p>
+  <p class="hint" id="foot-note"></p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

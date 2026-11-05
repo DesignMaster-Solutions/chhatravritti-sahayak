@@ -1,0 +1,127 @@
+/* Chhatravritti Sahayak: a school exercise notebook. Ruled paper, red margin, blue pen ink,
+   and a rubber stamp for the last date. Large type for a small, cheap screen. */
+:root {
+  --ink: #1f2a5a;
+  --ink-2: #33448c;
+  --paper: #fffdf6;
+  --rule: #dbe5f2;
+  --margin: #d0473f;
+  --text: #1c2233;
+  --muted: #545c70;
+  --open: #17703f;
+  --closed: #a8231b;
+  --wait: #7a5a00;
+  --line: #c9d3e3;
+  font-family: "Noto Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Devanagari", "Nirmala UI", sans-serif;
+  font-size: 112.5%;
+  color: var(--text);
+  background: #eef1f6;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { max-width: 36rem; margin: 0 auto; padding: 0 1rem; }
+a { color: var(--ink-2); }
+
+.top { background: var(--ink); color: #fff; padding: .75rem 0 1rem; }
+.top-row { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: .5rem; }
+/* avoid-ai-design-ignore: K4 (the tick mark of the logo, not a card stripe) */
+.tick { width: 1.1rem; height: .6rem; border-left: 3px solid #ffd166; border-bottom: 3px solid #ffd166; transform: rotate(-45deg) translateY(-.15rem); }
+.tagline { margin: .5rem 0 0; font-size: .95rem; opacity: .92; }
+.lang {
+  font: inherit; font-size: .9rem; color: #fff; background: transparent; white-space: nowrap; cursor: pointer;
+  border: 1px solid rgba(255,255,255,.55); border-radius: 999px; padding: .35rem .9rem; min-height: 2.5rem;
+}
+
+/* The page itself is a notebook sheet. */
+/* avoid-ai-design-ignore: K4 (the red margin line of a school notebook is the identity) */
+main {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 100% 1.75rem;
+  border-left: 3px double var(--margin);
+  padding-top: .5rem; padding-bottom: 1.25rem; min-height: 60vh;
+}
+h1 { font-size: 1.45rem; line-height: 1.3; margin: .25rem 0 .75rem; color: var(--ink); }
+h1:focus { outline: none; }
+h2 { font-size: 1.1rem; line-height: 1.35; margin: 0 0 .5rem; color: var(--ink); }
+h3 { font-size: 1rem; margin: 1rem 0 .25rem; color: var(--ink); }
+.progress { color: var(--muted); font-size: .9rem; margin: .5rem 0 0; min-height: 1.4em; }
+.hint { color: var(--muted); font-size: .92rem; }
+.msg { color: var(--closed); font-weight: 600; min-height: 1.3em; margin: .5rem 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.options { display: flex; flex-direction: column; gap: .5rem; }
+.opt {
+  display: flex; gap: .75rem; align-items: flex-start; padding: .85rem .9rem; cursor: pointer;
+  background: #fff; border: 2px solid var(--line); border-radius: 8px;
+}
+.opt input { width: 1.4rem; height: 1.4rem; margin: .1rem 0 0; flex: none; accent-color: var(--ink); }
+.opt:has(input:checked) { border-color: var(--ink); background: #f3f5fc; }
+select {
+  font: inherit; width: 100%; padding: .8rem; color: var(--text); background: #fff;
+  border: 2px solid var(--line); border-radius: 8px;
+}
+input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible, .opt:focus-within {
+  outline: 3px solid #ffb703; outline-offset: 2px;
+}
+
+/* One action row: never stacked, even at 360 px. */
+.nav, .actions { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1rem; }
+.nav[hidden] { display: none; }
+button, .primary, .link, .pill { font: inherit; white-space: nowrap; cursor: pointer; }
+.primary {
+  background: var(--ink); color: #fff; border: 0; border-radius: 8px; padding: .8rem 1.4rem; min-height: 3rem;
+  text-decoration: none; display: inline-flex; align-items: center; transition: transform .12s ease-out;
+}
+.primary:active { transform: scale(.97); }
+.link { background: none; border: 0; color: var(--ink-2); text-decoration: underline; padding: .6rem .25rem; min-height: 3rem; display: inline-flex; align-items: center; }
+.pill { background: #fff; color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; padding: .5rem 1.25rem; min-height: 2.75rem; }
+.applied .actions { justify-content: flex-start; margin-top: .25rem; }
+@media (max-width: 400px) {
+  .primary { padding: .75rem 1rem; }
+  .wrap { padding: 0 .75rem; }
+}
+
+/* Result */
+.lead { font-size: 1.1rem; font-weight: 600; margin: 0 0 .25rem; }
+.note { background: #fff7df; border: 1px solid #e6c56a; padding: .6rem .8rem; border-radius: 4px; }
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1rem; margin: 1rem 0;
+  box-shadow: 0 1px 0 var(--line); animation: rise .25s ease-out both;
+}
+.card.warn { border: 2px dashed #c99600; }
+.card p { margin: .35rem 0; }
+.tag { display: inline-block; margin: 0 0 .4rem !important; font-size: .85rem; font-weight: 700; color: var(--ink); background: #e6ebfa; padding: .1rem .6rem; border-radius: 999px; }
+.stamp {
+  display: inline-block; font-weight: 700; padding: .25rem .6rem; border: 2px solid currentColor; border-radius: 4px;
+  transform: rotate(-1deg); margin: .25rem 0 !important;
+}
+.stamp.open { color: var(--open); }
+.stamp.closed { color: var(--closed); }
+.stamp.notyet, .stamp.unknown { color: var(--wait); }
+.when { font-weight: 600; }
+.checked, .src { color: var(--muted); font-size: .88rem; }
+.big { font-size: 1.05rem; font-weight: 700; }
+.docs li, .notes li { margin: .2rem 0; }
+.block { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+.block ul { padding-left: 1.2rem; }
+.mini { list-style: none; padding: 0 !important; }
+.mini li { border-top: 1px solid var(--rule); padding: .6rem 0; }
+.mini p { margin: .2rem 0; }
+summary { font-weight: 700; color: var(--ink); cursor: pointer; padding: .25rem 0; }
+.checks h3 { border-bottom: 2px solid var(--margin); display: inline-block; }
+.applied { margin-top: 1.25rem; padding-top: .75rem; border-top: 1px dashed var(--line); }
+
+.foot { padding: 1rem; font-size: .92rem; }
+.foot p { margin: .25rem 0; }
+
+/* Stats page */
+table.stats { border-collapse: collapse; width: 100%; background: #fff; margin-bottom: 1rem; }
+table.stats th, table.stats td { border: 1px solid var(--line); padding: .4rem .6rem; text-align: left; }
+table.stats td { text-align: right; font-variant-numeric: tabular-nums; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .card { animation: none; } .primary { transition: none; } }

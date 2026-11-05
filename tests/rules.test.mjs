@@ -251,3 +251,11 @@ test('app code apart from nsp-data.js is under 100 KB', () => {
   const total = files.reduce((n, f) => n + statSync(new URL(f, root)).size, 0);
   assert.ok(total < 100 * 1024, `${total} bytes`);
 });
+
+test('AICTE Pragati and Saksham cite the PDF of the degree or diploma row', () => {
+  const deg = run({ girl: true, aicte: true }).fits.find((f) => f.id === 'pragati');
+  const dip = run({ course: 'iti', girl: true, aicte: true }).fits.find((f) => f.id === 'pragati');
+  assert.match(deg.src[1], /AICTE_2010_G\.pdf$/);
+  assert.match(dip.src[1], /AICTE_2011_G\.pdf$/);
+  assert.match(run({ course: 'iti', cats: ['pwd'], aicte: true }).fits.find((f) => f.id === 'saksham').src[1], /AICTE_2013_G\.pdf$/);
+});

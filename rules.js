@@ -91,9 +91,9 @@ export const RULES = [
     fits: (a) => a.renewal && a.csssOk && (a.course === 'ug' || a.course === 'pg'),
     src: ['para 4', G + 'CSSS_GUIDLINES_07022024_updated.pdf'], docs: 'csss' },
   { id: 'pragati', match: (r) => central(r) && /Pragati/.test(r.name), ceil: 800000, course: (r) => (/Diploma/.test(r.name) ? 'iti' : 'ug'),
-    fits: (a) => a.girl && a.aicte, notes: ['n_two_girls'], src: ['AICTE guideline', G + 'AICTE/AICTE_2010_G.pdf'], docs: 'see' },
+    fits: (a) => a.girl && a.aicte, notes: ['n_two_girls'], rowGuide: true, src: ['AICTE guideline', G + 'AICTE/AICTE_2010_G.pdf'], docs: 'see' },
   { id: 'saksham', match: (r) => central(r) && /Saksham/.test(r.name), ceil: 800000, course: (r) => (/Diploma/.test(r.name) ? 'iti' : 'ug'),
-    fits: (a) => a.cats.includes('pwd') && a.aicte, src: ['AICTE guideline', G + 'AICTE/AICTE_2012_G.pdf'], docs: 'see' },
+    fits: (a) => a.cats.includes('pwd') && a.aicte, rowGuide: true, src: ['AICTE guideline', G + 'AICTE/AICTE_2012_G.pdf'], docs: 'see' },
   { id: 'swanath', match: (r) => central(r) && /Swanath/.test(r.name), ceil: 800000, course: (r) => (/Diploma/.test(r.name) ? 'iti' : 'ug'),
     fits: (a) => (a.swanath || a.orphan) && a.aicte, notes: ['n_no_other'], src: ['para 2', G + 'AICTE/AICTE_3038_G.pdf'], docs: 'see' },
   { id: 'ishan', match: (r) => central(r) && /Ishan Uday/.test(r.name), ceil: 450000, lt: true,
@@ -171,7 +171,8 @@ export function eligibleSchemes(a, today) {
     const orphan = rule.orphanNoLimit && a.orphan;
     const income = orphan ? 'yes' : incomeFits(a.income, rule.ceil, rule.lt);
     if (income === 'no') return;
-    fits.push({ id: rule.id, row, ceil: rule.ceil, lt: !!rule.lt, income, orphan: !!orphan, src: rule.src,
+    fits.push({ id: rule.id, row, ceil: rule.ceil, lt: !!rule.lt, income, orphan: !!orphan,
+      src: rule.rowGuide && row.guide ? [rule.src[0], row.guide] : rule.src, // degree and diploma have their own AICTE PDF
       notes: rule.notes || [], deadline: deadlineFor(row, today), docs: documentsFor(rule.id, a.renewal) });
   };
 
