@@ -7,7 +7,8 @@ import {
 
 const $ = (s) => document.querySelector(s);
 const STEPS = ['course', 'state', 'cats', 'income', 'renewal', 'more', 'result'];
-const state = { lang: navigator.language?.startsWith('hi') ? 'hi' : 'en', step: 0 };
+const qLang = new URLSearchParams(location.search).get('lang');
+const state = { lang: ['en', 'hi'].includes(qLang) ? qLang : navigator.language?.startsWith('hi') ? 'hi' : 'en', step: 0 };
 const a = { course: null, state: '', cats: [], income: null, renewal: null, x: {} };
 const L = (k, v) => t(state.lang, k, v);
 const D = (iso) => fmtDate(state.lang, iso);
