@@ -186,7 +186,10 @@ counts only the event name (`check`, `schemes` with how many were shown, `copy`,
 ## Hindi
 
 The Hindi text was written by an AI agent (Claude Code) from the English strings and has not yet
-been reviewed by a native speaker. Corrections are welcome as issues or pull requests.
+been reviewed by a native speaker. A second independent reading on 07 Nov 2026 fixed 11 strings
+(plural agreement in the category question, a clause attached to the wrong noun in the NMMS rule,
+the income-edge warning, "nothing is uploaded" in the documents note, the plural of जाँच, among others); the native
+review is still missing. Corrections are welcome as issues or pull requests.
 
 ## How it was built
 
