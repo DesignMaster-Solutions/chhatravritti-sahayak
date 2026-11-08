@@ -28,6 +28,12 @@ export const INCOME_BANDS = [
 // code, NSP name (as in "State of X" / "UT of X"), state portal for the welfare categories.
 // Portals: official domains seen on 05 Nov 2026 (BRIEF.md). Never guess one.
 const MHDBT = 'https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51A';
+const EPASS = 'https://telanganaepass.cgg.gov.in/';
+const tsRead = (ceilKey, ceil, ceil2) => ({
+  url: EPASS + 'FreshRegistration202627.do', ceilUrl: EPASS + 'Scholarships.do', date: '08 Nov 2026', ceilKey, ceil, ceil2,
+  keys: ['d_ts_ssc', 'd_aadhaar', 'd_ts_caste_meeseva', 'd_ts_income_meeseva', 'd_ts_bank', 'd_ts_mobile', 'd_ts_bonafide7', 'd_ts_cet', 'd_photo'],
+  more: ['ts_when', 'ts_reject'],
+});
 export const STATES = [
   ['AN', 'Andaman and Nicobar Islands'], ['AP', 'Andhra Pradesh', { all: 'https://jnanabhumi.ap.gov.in' }],
   ['AR', 'Arunachal Pradesh'], ['AS', 'Assam'],
@@ -53,7 +59,14 @@ export const STATES = [
   ['PY', 'Puducherry'], ['PB', 'Punjab'], ['RJ', 'Rajasthan', { all: 'https://sjmsnew.rajasthan.gov.in/scholarship/' }],
   ['SK', 'Sikkim'],
   ['TN', 'Tamil Nadu', { sc: 'https://tnadw.tn.gov.in/scholarshipform/en', st: 'https://tnadw.tn.gov.in/scholarshipform/en', obc: 'https://bcw.tn.gov.in/sub_page/8' }],
-  ['TS', 'Telangana', { all: 'https://telanganaepass.cgg.gov.in' }], ['TR', 'Tripura'],
+  // Telangana ePASS also answers from outside India. Read on 08 Nov 2026 (evidence/epass/): the 2026-27 fresh
+  // registration pre-requisites and mandatory uploads, the "Scholarships" page (income limits per category,
+  // G.O.Ms.No.60 of 27-9-2011; BC/EBC/minority rural and urban), the Time Line (15 days of admission) and the
+  // Reasons for Rejection. No calendar date is printed. DNT is not a Telangana category: nothing read for it.
+  ['TS', 'Telangana', { all: 'https://telanganaepass.cgg.gov.in' }, null, {
+    sc: tsRead('ts_ceil_sc', 250000), st: tsRead('ts_ceil_st', 200000),
+    obc: tsRead('ts_ceil_bc', 150000, 200000), ebc: tsRead('ts_ceil_bc', 150000, 200000),
+  }], ['TR', 'Tripura'],
   // UP also pays a post-matric scholarship and fee reimbursement to General category students: 2011 Government
   // Order, amended 26.3.2016 (Rule 11, order of preference within the budget) and 21.6.2017 (Rule 21), as recorded
   // by the Allahabad High Court, 20 Feb 2023, paras 13-14 (evidence/real-cases/sources/94403196.txt). Rules not read.

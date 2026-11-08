@@ -299,9 +299,41 @@ test('Maharashtra SC and ST: state route carries the documents and the ceiling r
   for (const k of [...sc.read.keys, ...st.read.keys]) assert.ok(STRINGS.en[k] && STRINGS.hi[k], k);
   assert.equal(portalFor('MH', 'obc').where, 'nsp'); // PM YASASVI row on NSP, no state route
   assert.equal(portalFor('UP', 'sc').read, undefined);
-  assert.equal(portalFor('TS', 'sc').read, undefined);
+  assert.equal(portalFor('KA', 'sc').read, undefined);
   for (const income of [100000, 250001, 2000000]) {
     const r = run({ state: 'MH', cats: ['sc'], income });
+    assert.equal(r.stateRoutes.length, 1, String(income));
+    assert.equal(r.stateRoutes[0].read.ceil, 250000);
+  }
+});
+
+// ---- Telangana: the second state portal that answers; its 2026-27 fresh-registration page, the Scholarships page
+// (income limits), the Time Line and the Reasons for Rejection were read on 08 Nov 2026 (evidence/epass/). ----
+test('Telangana SC, ST, BC and EBC: state route carries the 2026-27 documents, the ceiling for that category by key, the 15-day rule and the rejection list; DNT carries nothing; never filtered', async () => {
+  const { STRINGS } = await import('../i18n.js');
+  const sc = portalFor('TS', 'sc');
+  assert.equal(sc.where, 'state');
+  assert.equal(sc.read.url, 'https://telanganaepass.cgg.gov.in/FreshRegistration202627.do');
+  assert.equal(sc.read.ceilUrl, 'https://telanganaepass.cgg.gov.in/Scholarships.do');
+  assert.equal(sc.read.date, '08 Nov 2026');
+  assert.equal(sc.read.ceil, 250000);
+  assert.equal(portalFor('TS', 'st').read.ceil, 200000);
+  for (const cat of ['obc', 'ebc']) {
+    const r = portalFor('TS', cat).read;
+    assert.equal(r.ceil, 150000, cat); // rural
+    assert.equal(r.ceil2, 200000, cat); // urban
+    assert.equal(r.ceilKey, 'ts_ceil_bc', cat);
+  }
+  assert.equal(sc.read.ceilKey, 'ts_ceil_sc');
+  assert.equal(portalFor('TS', 'st').read.ceilKey, 'ts_ceil_st');
+  for (const k of ['d_ts_income_meeseva', 'd_ts_bonafide7', 'd_ts_bank', 'd_aadhaar', 'd_photo']) assert.ok(sc.read.keys.includes(k), k);
+  assert.deepEqual(sc.read.more, ['ts_when', 'ts_reject']);
+  for (const k of [...sc.read.keys, ...sc.read.more, 'ts_ceil_sc', 'ts_ceil_st', 'ts_ceil_bc', 'sr_read_ceil_link']) assert.ok(STRINGS.en[k] && STRINGS.hi[k], k);
+  for (const k of ['ts_ceil_sc', 'ts_ceil_st']) assert.ok(STRINGS.en[k].includes('{limit}') && STRINGS.hi[k].includes('{limit}'), k);
+  assert.ok(STRINGS.en.ts_ceil_bc.includes('{urban}') && STRINGS.hi.ts_ceil_bc.includes('{urban}'));
+  assert.equal(portalFor('TS', 'dnt').read, undefined);
+  for (const income of [100000, 250001, 2000000]) {
+    const r = run({ state: 'TS', cats: ['sc'], income });
     assert.equal(r.stateRoutes.length, 1, String(income));
     assert.equal(r.stateRoutes[0].read.ceil, 250000);
   }

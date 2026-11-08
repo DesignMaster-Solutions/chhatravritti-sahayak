@@ -162,7 +162,8 @@ function routeCard(r) {
     ${r.where === 'state' ? '' : `<p>${link(NODAL, L('sr_nodal'))} · ${esc(L('help_nsp'))} <a href="tel:01206619540">0120-6619540</a></p>`}
     <p class="src">${esc(general ? L('sr_general_src', { para: r.src[0] }) : L('sr_central', { limit: inr(r.centralCeil), para: r.src[0] }))} ${link(r.src[1], L(general ? 'sr_general_link' : 'guideline'))}</p>
     ${r.read ? `<p>${esc(L('sr_read', { date: r.read.date }))}</p><ul>${r.read.keys.map((k) => `<li>${esc(L(k))}</li>`).join('')}</ul>
-    <p class="src">${r.read.ceil ? esc(L('sr_read_ceil', { limit: inr(r.read.ceil) })) + ' ' : ''}${link(r.read.url, L('sr_read_link'))}</p>` : ''}
+    <p class="src">${r.read.ceil ? esc(L(r.read.ceilKey || 'sr_read_ceil', { limit: inr(r.read.ceil), urban: inr(r.read.ceil2 || 0) })) + ' ' : ''}${r.read.ceilUrl ? link(r.read.ceilUrl, L('sr_read_ceil_link')) + ' · ' : ''}${link(r.read.url, L('sr_read_link'))}</p>
+    ${(r.read.more || []).map((k) => `<p>${esc(L(k))}</p>`).join('')}` : ''}
   </article>`;
 }
 
