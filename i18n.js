@@ -138,6 +138,10 @@ export const STRINGS = {
     sr_portal: 'Your state\'s portal (not verified by us)',
     sr_unknown: 'We have not verified the portal for your state. Ask the scheme-wise nodal officer listed on NSP, or call the NSP helpdesk.',
     sr_nodal: 'NSP nodal officers list',
+    sr_general_title: 'State post-matric scholarship and fee reimbursement for the General category',
+    sr_general_text: 'Your state pays a post-matric scholarship and fee reimbursement to General category students under its own Government Order (2011, amended in 2016 and 2017): by order of preference and only while that year\'s budget lasts; applications left unpaid are not carried to the next year. Income limit, last date and documents: NOT read by us. Open the state portal and confirm there.',
+    sr_general_src: 'Source: {para}, recording Rules 11 and 21 of the state scheme. Not a guideline we read.',
+    sr_general_link: 'Court decision',
 
     un_title: 'Other schemes on NSP for your state',
     un_text: 'Rules not read by us, open the guideline.',
@@ -336,6 +340,10 @@ export const STRINGS = {
     sr_portal: 'आपके राज्य का पोर्टल (हमने सत्यापित नहीं किया)',
     sr_unknown: 'आपके राज्य का पोर्टल हमने सत्यापित नहीं किया है। NSP की योजना-वार सूची में दिए नोडल अधिकारी से पूछें, या NSP हेल्पडेस्क पर कॉल करें।',
     sr_nodal: 'NSP नोडल अधिकारी सूची',
+    sr_general_title: 'सामान्य वर्ग के लिए राज्य की पोस्ट-मैट्रिक छात्रवृत्ति और शुल्क प्रतिपूर्ति',
+    sr_general_text: 'आपका राज्य अपने शासनादेश (2011, संशोधन 2016 और 2017) के तहत सामान्य वर्ग के छात्रों को पोस्ट-मैट्रिक छात्रवृत्ति और शुल्क प्रतिपूर्ति देता है: वरीयता क्रम से और सिर्फ़ उस साल का बजट रहने तक; बिना भुगतान रह गए आवेदन अगले साल नहीं ले जाए जाते। आय सीमा, अंतिम तारीख और दस्तावेज़: हमने नहीं पढ़े। राज्य का पोर्टल खोलें और वहीं पुष्टि करें।',
+    sr_general_src: 'स्रोत: {para}, जिसमें राज्य की योजना के नियम 11 और 21 दर्ज हैं। यह हमारा पढ़ा हुआ दिशानिर्देश नहीं है।',
+    sr_general_link: 'अदालत का फ़ैसला',
 
     un_title: 'आपके राज्य की NSP पर दूसरी योजनाएँ',
     un_text: 'नियम हमने नहीं पढ़े, दिशानिर्देश खोलें।',

@@ -45,9 +45,14 @@ export const STATES = [
   ['SK', 'Sikkim'],
   ['TN', 'Tamil Nadu', { sc: 'https://tnadw.tn.gov.in/scholarshipform/en', st: 'https://tnadw.tn.gov.in/scholarshipform/en', obc: 'https://bcw.tn.gov.in/sub_page/8' }],
   ['TS', 'Telangana', { all: 'https://telanganaepass.cgg.gov.in' }], ['TR', 'Tripura'],
-  ['UP', 'Uttar Pradesh', { all: 'https://scholarship.up.gov.in' }], ['UK', 'Uttarakhand'],
+  // UP also pays a post-matric scholarship and fee reimbursement to General category students: 2011 Government
+  // Order, amended 26.3.2016 (Rule 11, order of preference within the budget) and 21.6.2017 (Rule 21), as recorded
+  // by the Allahabad High Court, 20 Feb 2023, paras 13-14 (evidence/real-cases/sources/94403196.txt). Rules not read.
+  ['UP', 'Uttar Pradesh', { all: 'https://scholarship.up.gov.in' },
+    { url: 'https://scholarship.up.gov.in', src: ['Allahabad High Court (DB), 20 Feb 2023, paras 13-14', 'https://indiankanoon.org/doc/94403196/'] }],
+  ['UK', 'Uttarakhand'],
   ['WB', 'West Bengal', { all: 'https://oasis.wb.gov.in' }],
-].map(([code, nsp, portals = {}]) => ({ code, nsp, portals }));
+].map(([code, nsp, portals = {}, general = null]) => ({ code, nsp, portals, general }));
 
 const stateOf = (row) => row.by.replace(/^(State|UT) of /, '');
 const has = (re) => (row) => re.test(row.name);
@@ -189,6 +194,10 @@ export function eligibleSchemes(a, today) {
       const r = RULES.find((x) => x.id === CENTRAL_CEIL[cat]);
       stateRoutes.push({ cat, ...p, centralCeil: r.ceil, src: r.src });
     }
+  }
+  // General category: only where an official record names a state scheme (today UP). Never a ceiling, never guessed.
+  if (a.cats.includes('general') && st?.general) {
+    stateRoutes.push({ cat: 'general', where: 'state', url: st.general.url, verified: false, src: st.general.src });
   }
 
   // Central schemes.

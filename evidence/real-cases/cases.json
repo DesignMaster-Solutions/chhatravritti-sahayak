@@ -118,9 +118,14 @@
    ],
    "replay": {
     "fits": [],
-    "routes": []
+    "routes": [
+     {
+      "cat": "general",
+      "where": "state"
+     }
+    ]
    },
-   "divergence": "The app lists no scheme for him: it covers the NSP lists and the welfare categories, not the UP state scheme for General category students. The three checks still appear on his result, so the institute-verification warning would have reached him, but no scheme card, date or portal link would."
+   "divergence": "Until 8 Nov 2026 the app listed no scheme for him: it covered the NSP lists and the welfare categories, not the UP state scheme for General category students. Since 8 Nov 2026 a General student in UP gets the route card for that scheme, sourced to this decision (paras 13-14: 2011 Government Order, Rules 11 and 21, order of preference within the year's budget), linking scholarship.up.gov.in as not verified by us, with no income limit, last date or document list, which we have not read. The three checks still appear, so the institute-verification warning reaches him."
   },
   {
    "id": "pb-hc-2024-malkit-kaur",

@@ -58,8 +58,12 @@ case, that the warning for its cause is rendered and says the right thing:
 The answers the decisions allow were replayed in 6 cases: the test checks the schemes and the portal the app
 gives. Where the app and the decision differ, `cases.json` says so; there are 10 divergences. The main ones:
 
-- **No scheme for a General category student in UP** (Abhishek Kumar Mishra). The app reads the NSP lists and
-  the welfare categories, not UP's state scheme for General students. The three checks still show.
+- **General category in UP: narrowed on 8 Nov 2026** (Abhishek Kumar Mishra). The app reads the NSP lists and
+  the welfare categories; UP's own scheme for General students is known to us only from this decision (paras 13-14:
+  2011 Government Order, Rules 11 and 21, order of preference within the year's budget, unpaid cases not carried
+  forward). A General student in UP now gets a route card to scholarship.up.gov.in, "not verified by us", sourced to
+  the decision, with no income limit, last date or document list: the portal does not answer from outside India and
+  we have not read its rules. The three checks still show.
 - **State portals have no dates in the app.** UP SC goes to the state portal, "not verified", with no last date,
   no institute date and no document list, so Vaishali Ravi would get the general institute warning only.
 - **Certificates: closed on 8 Nov 2026.** Check 4 now says the income certificate comes from the authority the

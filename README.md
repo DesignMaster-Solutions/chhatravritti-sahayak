@@ -36,7 +36,10 @@ The result shows:
   "NSP does not list this scheme for your state; the state runs it; dates and rules NOT verified by
   us, the state may use a different income limit", links the state portal if we saw its official
   domain, or the NSP nodal officers list and helpdesk if we did not. It is never filtered by income:
-  the central limit is shown only as "central guideline".
+  the central limit is shown only as "central guideline". A General category student in Uttar Pradesh gets the
+  same kind of card for the state's own scholarship and fee reimbursement for the General category, known to us
+  only from the Allahabad High Court decision of 20 Feb 2023 (paras 13-14) saved in `evidence/real-cases`; no
+  limit, date or document list, because we have not read that scheme's rules.
 - **Other NSP rows for your state** (and other central rows) with their date and guideline link and
   "rules not read by us, open the guideline". Never a limit.
 - One Time Registration before applying, the four checks (Aadhaar-seeded bank account, same name

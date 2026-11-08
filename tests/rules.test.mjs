@@ -149,10 +149,23 @@ test('minority-only student: the minority note, no post-matric minority scheme i
   assert.ok(run({ cats: ['minority'], girl: true, aicte: true }).fits.some((f) => f.id === 'pragati'));
 });
 
-test('general student with no extra situation: no scheme', () => {
-  const r = run({ cats: ['general'], income: 900000, state: 'UP' });
-  assert.deepEqual(r.fits, []);
-  assert.deepEqual(r.stateRoutes, []);
+test('general student in UP: no NSP scheme, but the state route for the General category (2011 GO, Allahabad HC 20 Feb 2023), never a ceiling', () => {
+  for (const income of [100000, 900000]) {
+    const r = run({ cats: ['general'], income, state: 'UP' });
+    assert.deepEqual(r.fits, []);
+    assert.equal(r.stateRoutes.length, 1, String(income));
+    assert.equal(r.stateRoutes[0].cat, 'general');
+    assert.equal(r.stateRoutes[0].where, 'state');
+    assert.equal(r.stateRoutes[0].url, 'https://scholarship.up.gov.in');
+    assert.equal(r.stateRoutes[0].centralCeil, undefined);
+    assert.equal(r.stateRoutes[0].ceil, undefined);
+    assert.match(r.stateRoutes[0].src[1], /indiankanoon\.org\/doc\/94403196/);
+  }
+  // No official record of a General category scheme for the other states: nothing guessed.
+  assert.deepEqual(run({ cats: ['general'], income: 100000, state: 'HP' }).stateRoutes, []);
+  assert.deepEqual(run({ cats: ['general'], income: 100000, state: 'MH' }).stateRoutes, []);
+  // An SC student in UP still gets only the SC route.
+  assert.deepEqual(run({ cats: ['sc'], income: 100000, state: 'UP' }).stateRoutes.map((x) => x.cat), ['sc']);
 });
 
 test('state rows with no BRIEF rule are listed with date and guideline, never with a ceiling', () => {

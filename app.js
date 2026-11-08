@@ -154,12 +154,13 @@ function card(f) {
 }
 
 function routeCard(r) {
+  const general = r.cat === 'general';
   return `<article class="card warn">
-    <h2>${esc(L('sr_title', { cat: L(`cat_${r.cat}`) }))}</h2>
-    <p>${esc(L('sr_text'))}</p>
+    <h2>${esc(general ? L('sr_general_title') : L('sr_title', { cat: L(`cat_${r.cat}`) }))}</h2>
+    <p>${esc(L(general ? 'sr_general_text' : 'sr_text'))}</p>
     <p class="big">${r.where === 'state' ? link(r.url, L('sr_portal')) : esc(L('sr_unknown'))}</p>
     ${r.where === 'state' ? '' : `<p>${link(NODAL, L('sr_nodal'))} · ${esc(L('help_nsp'))} <a href="tel:01206619540">0120-6619540</a></p>`}
-    <p class="src">${esc(L('sr_central', { limit: inr(r.centralCeil), para: r.src[0] }))} ${link(r.src[1], L('guideline'))}</p>
+    <p class="src">${esc(general ? L('sr_general_src', { para: r.src[0] }) : L('sr_central', { limit: inr(r.centralCeil), para: r.src[0] }))} ${link(r.src[1], L(general ? 'sr_general_link' : 'guideline'))}</p>
   </article>`;
 }
 
