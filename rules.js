@@ -27,6 +27,7 @@ export const INCOME_BANDS = [
 
 // code, NSP name (as in "State of X" / "UT of X"), state portal for the welfare categories.
 // Portals: official domains seen on 05 Nov 2026 (BRIEF.md). Never guess one.
+const MHDBT = 'https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51A';
 export const STATES = [
   ['AN', 'Andaman and Nicobar Islands'], ['AP', 'Andhra Pradesh', { all: 'https://jnanabhumi.ap.gov.in' }],
   ['AR', 'Arunachal Pradesh'], ['AS', 'Assam'],
@@ -39,7 +40,15 @@ export const STATES = [
   ['KA', 'Karnataka', { all: 'https://ssp.postmatric.karnataka.gov.in' }],
   ['KL', 'Kerala', { all: 'https://egrantz.kerala.gov.in' }], ['LA', 'Ladakh'], ['LD', 'Lakshadweep'],
   ['MP', 'Madhya Pradesh', { all: 'https://hescholarship.mp.gov.in' }],
-  ['MH', 'Maharashtra', { all: 'https://mahadbt.maharashtra.gov.in' }], ['MN', 'Manipur'], ['ML', 'Meghalaya'],
+  // Maharashtra is the one state portal that answers from outside India. Its scheme pages (SC: Social Justice
+  // "Government of India Post-Matric Scholarship"; ST: Tribal Development "Post Matric Scholarship Scheme
+  // (Government Of India)") were read on 08 Nov 2026: documents and, where printed, the income ceiling. No date there.
+  ['MH', 'Maharashtra', { all: 'https://mahadbt.maharashtra.gov.in' }, null, {
+    sc: { url: MHDBT + 'CE99921E698B1EE85995B38445F14746E1B0DD7E66FFF88B', date: '08 Nov 2026', ceil: 250000,
+      keys: ['d_mh_income_tahsildar', 'd_caste_plain', 'd_mh_last_marks', 'd_mh_ssc_hsc', 'd_mh_gap', 'd_mh_hostel', 'd_mh_husband'] },
+    st: { url: MHDBT + '668ED132B54E2162E54C475F826D85C79DA948301E5F7772', date: '08 Nov 2026',
+      keys: ['d_caste_plain', 'd_income_plain', 'd_prev_marks', 'd_mh_validity'] },
+  }], ['MN', 'Manipur'], ['ML', 'Meghalaya'],
   ['MZ', 'Mizoram'], ['NL', 'Nagaland'], ['OD', 'Odisha', { all: 'https://scholarship.odisha.gov.in' }],
   ['PY', 'Puducherry'], ['PB', 'Punjab'], ['RJ', 'Rajasthan', { all: 'https://sjmsnew.rajasthan.gov.in/scholarship/' }],
   ['SK', 'Sikkim'],
@@ -52,7 +61,7 @@ export const STATES = [
     { url: 'https://scholarship.up.gov.in', src: ['Allahabad High Court (DB), 20 Feb 2023, paras 13-14', 'https://indiankanoon.org/doc/94403196/'] }],
   ['UK', 'Uttarakhand'],
   ['WB', 'West Bengal', { all: 'https://oasis.wb.gov.in' }],
-].map(([code, nsp, portals = {}, general = null]) => ({ code, nsp, portals, general }));
+].map(([code, nsp, portals = {}, general = null, read = {}]) => ({ code, nsp, portals, general, read }));
 
 const stateOf = (row) => row.by.replace(/^(State|UT) of /, '');
 const has = (re) => (row) => re.test(row.name);
@@ -142,7 +151,7 @@ export function portalFor(stateCode, cat) {
   const rows = NSP.filter((r) => sponsored(r) && stateOf(r) === st.nsp && ROW_CATS[cat]?.(r));
   if (rows.length) return { where: 'nsp', url: NSP_HOME, rows };
   const url = st.portals[cat] || st.portals.all;
-  if (url) return { where: 'state', url, verified: false };
+  if (url) return { where: 'state', url, verified: false, read: st.read[cat] };
   return { where: 'unknown', url: NODAL, verified: false };
 }
 

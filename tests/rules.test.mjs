@@ -282,3 +282,27 @@ test('slot-limited schemes carry the slots note on their card; the ST fellowship
   const sc = run({ state: 'DL', cats: ['sc'], income: 700000 }).fits.find((f) => f.id === 'top_sc');
   assert.ok(sc.notes.includes('n_slots'));
 });
+
+// ---- Maharashtra: the only state portal that answers from outside India; its scheme pages were read. ----
+test('Maharashtra SC and ST: state route carries the documents and the ceiling read on mahadbt.maharashtra.gov.in on 08 Nov 2026; never filtered by it; other routes carry nothing', async () => {
+  const { STRINGS } = await import('../i18n.js');
+  const sc = portalFor('MH', 'sc');
+  assert.equal(sc.where, 'state');
+  assert.ok(sc.read.url.startsWith('https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str='));
+  assert.equal(sc.read.ceil, 250000);
+  assert.equal(sc.read.date, '08 Nov 2026');
+  assert.ok(sc.read.keys.includes('d_mh_income_tahsildar'));
+  const st = portalFor('MH', 'st');
+  assert.equal(st.read.ceil, undefined); // the ST page gives no figure
+  assert.ok(st.read.keys.includes('d_mh_validity'));
+  assert.notEqual(st.read.url, sc.read.url);
+  for (const k of [...sc.read.keys, ...st.read.keys]) assert.ok(STRINGS.en[k] && STRINGS.hi[k], k);
+  assert.equal(portalFor('MH', 'obc').where, 'nsp'); // PM YASASVI row on NSP, no state route
+  assert.equal(portalFor('UP', 'sc').read, undefined);
+  assert.equal(portalFor('TS', 'sc').read, undefined);
+  for (const income of [100000, 250001, 2000000]) {
+    const r = run({ state: 'MH', cats: ['sc'], income });
+    assert.equal(r.stateRoutes.length, 1, String(income));
+    assert.equal(r.stateRoutes[0].read.ceil, 250000);
+  }
+});

@@ -157,6 +157,18 @@ Pradesh, Rajasthan, Karnataka, Telangana, Andhra Pradesh, West Bengal, Gujarat, 
 Nadu from our machine, so the app links them as "not verified by us" and never states their dates
 or income limits.
 
+**The one state portal we could read: Maharashtra** (checked again on 08 Nov 2026: Telangana ePASS also
+answers, but its notices stop at 2024-25; the other twelve still refuse). MahaDBT publishes one page per
+scheme with eligibility and "Documents Required", so the SC and ST route cards for Maharashtra list the
+documents quoted from the state's own pages and, for SC, the income ceiling the page states (Rs 2,50,000;
+the ST page gives no figure). The app still does not filter by that ceiling and still shows no closing
+date for Maharashtra, because the pages print none. Sources, saved as text in `evidence/mahadbt/`:
+SC, Social Justice and Special Assistance, "Government of India Post-Matric Scholarship"
+(`SchemeData?str=...E1B0DD7E66FFF88B`); ST, Tribal Development, "Post Matric Scholarship Scheme
+(Government Of India)" (`...9DA948301E5F7772`). One SC item, "Father date Certificate (if required)",
+was left out because we could not tell what paper it means. OBC, EBC and DNT students of Maharashtra
+apply on NSP (PM YASASVI row), so no state card is shown to them.
+
 **Applying for more than one**: [F/NSP_FAQsORApplicationUsermanul_V2.2.pdf](https://scholarships.gov.in/public/FAQ/NSP_FAQsORApplicationUsermanul_V2.2.pdf) Q3 and the NSP home page.
 
 **One Time Registration**: [F/OTR FAQ v1.4.pdf](https://scholarships.gov.in/public/FAQ/OTR%20FAQ%20v1.4.pdf) Q5, Q20, Q27; NSP home notices (OTR app, AadhaarFaceRD, error 904, locked biometrics, the CSC fee); CSC locator https://locator.csccloud.in.
