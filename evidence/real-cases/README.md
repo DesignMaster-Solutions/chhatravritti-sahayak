@@ -42,8 +42,8 @@ against `cases.json`.
 
 ## What the app would have said
 
-The result screen shows "3 checks before you submit" (Aadhaar-seeded bank account, same name everywhere,
-institute verification) on every result, plus a last date on every NSP scheme card. The test checks, for each
+The result screen shows "4 checks before you submit" (Aadhaar-seeded bank account, same name everywhere,
+institute verification, income and caste certificates) on every result, plus a last date on every NSP scheme card. The test checks, for each
 case, that the warning for its cause is rendered and says the right thing:
 
 - **Bank or DBT.** Amit Yadav lost Rs 50,000 to a credit limit on his account; the app says "no credit limit on
@@ -62,13 +62,17 @@ gives. Where the app and the decision differ, `cases.json` says so; there are 10
   the welfare categories, not UP's state scheme for General students. The three checks still show.
 - **State portals have no dates in the app.** UP SC goes to the state portal, "not verified", with no last date,
   no institute date and no document list, so Vaishali Ravi would get the general institute warning only.
-- **Certificates.** The name check covers the mark sheet; it does not say the income certificate must carry the
-  same father's name (Divya Singh) or name caste, income and domicile certificates (the 232 UP students).
-- **Slots.** The app does not say that some central schemes pay a fixed number of slots per institute (Raju Kumar).
+- **Certificates: closed on 8 Nov 2026.** Check 4 now says the income certificate comes from the authority the
+  State names and carries the father's or guardian's name as on the mark sheet and Aadhaar, one per sibling
+  (Divya Singh), and names the caste, income and domicile certificates, income figure, roll number and account
+  holder name the State matches against its databases (the 232 UP students; PMS-SC para 5.3, 8.3, 8.4).
+- **Slots: closed on 8 Nov 2026.** Check 3 and the card of each Top Class scheme and of the disability post-matric
+  scheme say they pay a fixed number of slots per institute and the institute verifies only that many, by merit
+  (Raju Kumar; Top Class SC para 2b, Top Class College 3(ii) and 6(ii), DEPwD footnote).
 - **Things no warning prevents.** A portal that refused anyone over 40 (Malkit Kaur), and a bank mismatch the
   department itself could not explain on Aadhaar-linked accounts (Himachal).
 
-These gaps are written down here, not fixed: this work did not change the app.
+The first two gaps stay written down, not fixed; the certificates and slots gaps were closed in the app on 8 Nov 2026, with the three cases replayed against the new warnings in the test.
 
 ## Limits
 

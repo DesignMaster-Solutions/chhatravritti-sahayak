@@ -32,7 +32,9 @@
    },
    "warnings": [
     "chk2_a",
-    "chk1_a"
+    "chk1_a",
+    "chk4_a",
+    "chk4_c"
    ],
    "replay": {
     "fits": null,
@@ -43,7 +45,7 @@
      }
     ]
    },
-   "divergence": "The app sends a UP SC student to the state portal and lists no documents for it (documents are listed only for NSP schemes). The name check covers the mark sheet, father's name and roll number, and the bank check covers the account; neither mentions the caste, income or domicile certificate by name. The order also shows an appeal to the District Magistrate (Clause 17(iv)) that none of the 232 students used; the app does not mention it.",
+   "divergence": "The app sends a UP SC student to the state portal and lists no documents for it (documents are listed only for NSP schemes). Since 8 November 2026 the certificates check names the caste, income and domicile certificates, the income figure, the roll number and the account holder name as the fields the State matches against its databases (PMS-SC guideline para 8.4), which is the list in this order; before that, the name check covered the mark sheet only. The order also shows an appeal to the District Magistrate (Clause 17(iv)) that none of the 232 students used; the app does not mention it.",
    "students_in_batch": 449
   },
   {
@@ -75,10 +77,11 @@
    },
    "warnings": [
     "chk2_a",
-    "chk2_c"
+    "chk2_c",
+    "chk4_a"
    ],
    "replay": null,
-   "divergence": "The app's name check says father's name exactly as on the mark sheet; it does not say the income certificate must carry the same father's name, nor that each sibling should hold his or her own certificate. The order does not state the category, so the scheme list is not replayed."
+   "divergence": "Since 8 November 2026 the certificates check says the income certificate must come from the authority the State names and carry the father's or guardian's name exactly as on the mark sheet and Aadhaar, and that each brother or sister applies with his or her own certificate (PMS-SC guideline para 5.3 and 8.3; Top Class SC para 2a); before that, the name check covered the mark sheet only. The order does not state the category, so the scheme list is not replayed."
   },
   {
    "id": "up-hc-2023-abhishek-mishra",
@@ -357,10 +360,11 @@
     "renewal": null
    },
    "warnings": [
-    "chk3_a"
+    "chk3_a",
+    "chk3_d"
    ],
    "replay": null,
-   "divergence": "The app tells the student to follow up with the institute on verification; it does not say that some central schemes have a fixed number of slots per institute and that verification beyond them is not paid. The application ID begins with BR, but the order does not state the student's state, so the scheme list is not replayed."
+   "divergence": "Since 8 November 2026 the institute check says that the Top Class schemes (SC; OBC, EBC and DNT; disability) and the disability post-matric scheme pay a fixed number of slots per institute and that the institute verifies only as many applications as its slots, by merit (Top Class SC para 2b, Top Class College para 3(ii) and 6(ii), DEPwD guideline footnote); the card of each of those schemes carries the same note. Before that, the app only told the student to follow up with the institute. The application ID begins with BR, but the order does not state the student's state, so the scheme list is not replayed."
   },
   {
    "id": "hr-hc-2024-sawan-kumar",

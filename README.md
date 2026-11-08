@@ -3,7 +3,7 @@
 Free, open-source helper for students from poor families in India. A student in Class 11 or 12,
 ITI or diploma, college or university answers six short questions and sees which government
 scholarships on the National Scholarship Portal (NSP) **may fit** them this year, where to apply
-(NSP or their state's own portal), by when, with which documents, and the three checks that keep
+(NSP or their state's own portal), by when, with which documents, and the four checks that keep
 an approved scholarship from getting stuck before it reaches the bank account. English and Hindi,
 built for a cheap phone on a slow connection. For students, parents, and the teachers or college
 clerks who fill these forms for them.
@@ -39,8 +39,10 @@ The result shows:
   the central limit is shown only as "central guideline".
 - **Other NSP rows for your state** (and other central rows) with their date and guideline link and
   "rules not read by us, open the guideline". Never a limit.
-- One Time Registration before applying, the three checks (Aadhaar-seeded bank account, same name
-  everywhere, institute verification), what to do after approval, helplines.
+- One Time Registration before applying, the four checks (Aadhaar-seeded bank account, same name
+  everywhere, institute verification including the slots per institute of the Top Class and disability
+  schemes, income and caste certificates from the right authority with matching names), what to do after
+  approval, helplines.
 - "Copy checklist", "Send on WhatsApp" and a "Did you apply?" yes / not yet box.
 
 A minority student is told that the 2026-27 NSP lists show no post-matric or merit-cum-means scheme
@@ -97,7 +99,7 @@ before it was trusted.
 waited 2 to 7 years for a post-matric scholarship. 9 name what stopped the money: a bank account with a credit
 limit or details PFMS would not match, a father's name or account holder name that did not match, an institute
 that did not forward or over-verified, a paper application or a closed online window. Each of those is one of
-the app's 3 checks or its last date. `tests/real-cases.test.mjs` checks each quote word for word, that the
+the app's 4 checks or its last date. `tests/real-cases.test.mjs` checks each quote word for word, that the
 matching warning is on the result screen in English and Hindi, and replays the student's answers through
 `rules.js`; it was seen failing against 5 mutants (a warning taken off the screen, its wording changed, Punjab
 SC moved off NSP, a word changed in a quote). Table, numbers, the 10 places the app reads a case differently,
@@ -158,7 +160,7 @@ or income limits.
 
 **Documents**: [G/FAQ_DOHE_CSSS.pdf](https://scholarships.gov.in/public/schemeGuidelines/FAQ_DOHE_CSSS.pdf) (CSSS), SC para 8.3 in manipur_3032_G and YASASVI para 8.3 (SC and OBC/EBC/DNT), DEPDFAQ Q13 (disability).
 
-**The three checks and after approval**: CSSS FAQ Q6-9 and Q15; [G/npci_base.pdf](https://scholarships.gov.in/public/schemeGuidelines/npci_base.pdf); DEPDFAQ Q18 and Q23; [F/NSP_SOP.pdf](https://scholarships.gov.in/public/FAQ/NSP_SOP.pdf) 3a, 3e-3i, 3k; NSP FAQ Q6, Q8, Q12, Q13; PFMS Know Your Payment https://pfms.nic.in/SitePages/KnowYourPayment_Dw_NewNew.aspx; NSP status https://scholarships.gov.in/payl/loginPage.action; NSP helpdesk 0120-6619540; PFMS 1800 118 111; NSP eligibility check https://scholarships.gov.in/scholarshipEligibility; grievance https://nsp.gov.in/grievanceregistration/.
+**The four checks and after approval**: slots per institute in [Top Class SC 2018](https://scholarships.gov.in/public/schemeGuidelines/Top_Class_Education_Scheme_2018.pdf) para 2b and 5c, [Top Class College (PM YASASVI)](https://scholarships.gov.in/public/schemeGuidelines/ApprovedmodifieddraftofTopClassCollege.pdf) para 3(ii) and 6(ii), [DEPwD guidelines](https://scholarships.gov.in/public/schemeGuidelines/DEPDGuidelines_1.pdf) footnote to the slots table (the ST National Fellowship para 2.4 has no slot ceiling, so its card carries no slots note); income certificate from the authority the State names, taken once per course, and the State databases of caste, income and domicile certificates in [PMS-SC](https://scholarships.gov.in/public/schemeGuidelines/Manipur_state_scheme/manipur_3032_G.pdf) para 5.3, 8.3 and 8.4, [PM YASASVI](https://scholarships.gov.in/public/schemeGuidelines/Guidlines_3099.pdf) note 1, Top Class SC para 2a (revenue officer not below Tehsildar); CSSS FAQ Q6-9 and Q15; [G/npci_base.pdf](https://scholarships.gov.in/public/schemeGuidelines/npci_base.pdf); DEPDFAQ Q18 and Q23; [F/NSP_SOP.pdf](https://scholarships.gov.in/public/FAQ/NSP_SOP.pdf) 3a, 3e-3i, 3k; NSP FAQ Q6, Q8, Q12, Q13; PFMS Know Your Payment https://pfms.nic.in/SitePages/KnowYourPayment_Dw_NewNew.aspx; NSP status https://scholarships.gov.in/payl/loginPage.action; NSP helpdesk 0120-6619540; PFMS 1800 118 111; NSP eligibility check https://scholarships.gov.in/scholarshipEligibility; grievance https://nsp.gov.in/grievanceregistration/.
 
 ## Why it matters (scale)
 

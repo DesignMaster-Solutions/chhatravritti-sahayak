@@ -194,7 +194,10 @@ function renderResult() {
       <h3>1. ${esc(L('chk1_t'))}</h3>${ul(['chk1_a', 'chk1_b', 'chk1_c', 'chk1_d', 'chk1_e'])}
       <p class="src">${link(G + 'npci_base.pdf', 'NPCI BASE')} · ${link(G + 'FAQ_DOHE_CSSS.pdf', 'CSSS FAQ')} · ${link(F + 'NSP_SOP.pdf', 'NSP SOP')}</p>
       <h3>2. ${esc(L('chk2_t'))}</h3>${ul(['chk2_a', 'chk2_b', 'chk2_c'])}
-      <h3>3. ${esc(L('chk3_t'))}</h3>${ul(['chk3_a', 'chk3_b', 'chk3_c'])}
+      <h3>3. ${esc(L('chk3_t'))}</h3>${ul(['chk3_a', 'chk3_b', 'chk3_c', 'chk3_d'])}
+      <p class="src">${link(G + 'Top_Class_Education_Scheme_2018.pdf', 'Top Class SC 2b')} · ${link(G + 'ApprovedmodifieddraftofTopClassCollege.pdf', 'Top Class College 3(ii), 6(ii)')} · ${link(G + 'DEPDGuidelines_1.pdf', 'DEPwD slots')}</p>
+      <h3>4. ${esc(L('chk4_t'))}</h3>${ul(['chk4_a', 'chk4_b', 'chk4_c'])}
+      <p class="src">${link(G + 'Manipur_state_scheme/manipur_3032_G.pdf', 'PMS-SC 5.3, 8.3, 8.4')} · ${link(G + 'Guidlines_3099.pdf', 'PM YASASVI note 1')} · ${link(G + 'Top_Class_Education_Scheme_2018.pdf', 'Top Class SC 2a')}</p>
     </section>
 
     <section class="block"><h2>${esc(L('after_title'))}</h2>
@@ -241,7 +244,7 @@ function trackResult() {
   track('schemes', { n: last.fits.length + last.stateRoutes.length });
 }
 
-// Plain text for the clipboard and WhatsApp: name, deadline, where, documents, the 3 checks.
+// Plain text for the clipboard and WhatsApp: name, deadline, where, documents, the 4 checks.
 function checklist() {
   const { fits, stateRoutes } = last;
   const lines = [`*${L('list_head')}*`, ''];
@@ -256,7 +259,7 @@ function checklist() {
   }
   for (const r of stateRoutes) lines.push(`- ${L('sr_title', { cat: L(`cat_${r.cat}`) })}: ${r.where === 'state' ? r.url : NODAL}`);
   lines.push('', L('checked', { date: D(NSP_CHECKED) }), '', `*${L('chk_title')}*`,
-    `[ ] ${L('chk1_t')}`, `[ ] ${L('chk2_t')}`, `[ ] ${L('chk3_t')}`, '', L('list_link', { url: location.origin }));
+    `[ ] ${L('chk1_t')}`, `[ ] ${L('chk2_t')}`, `[ ] ${L('chk3_t')}`, `[ ] ${L('chk4_t')}`, '', L('list_link', { url: location.origin }));
   return lines.join('\n');
 }
 
