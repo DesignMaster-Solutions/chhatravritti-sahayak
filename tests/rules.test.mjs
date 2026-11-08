@@ -260,7 +260,7 @@ test('AICTE Pragati and Saksham cite the PDF of the degree or diploma row', () =
   assert.match(run({ course: 'iti', cats: ['pwd'], aicte: true }).fits.find((f) => f.id === 'saksham').src[1], /AICTE_2013_G\.pdf$/);
 });
 
-// Slots: Top Class SC para 2b, Top Class College para 3(ii) and 7(ii), DEPwD guideline footnote (fixed slots for
+// Slots: Top Class SC para 2b, Top Class College para 3(ii) and 6(ii), DEPwD guideline footnote (fixed slots for
 // pre-matric, post-matric and Top Class). The ST National Fellowship para 2.4 says there is NO slot ceiling.
 test('slot-limited schemes carry the slots note on their card; the ST fellowship does not', () => {
   const notes = (id) => RULES.find((r) => r.id === id).notes || [];
