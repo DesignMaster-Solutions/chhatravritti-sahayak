@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { eligibleSchemes, portalFor, deadlineFor, documentsFor, RULES, NODAL, NSP_HOME } from '../rules.js';
-import { NSP } from '../nsp-data.js';
+import { NSP, NSP_CHECKED } from '../nsp-data.js';
 
 const TODAY = '2026-11-05';
 const base = { course: 'ug', state: 'UP', cats: ['general'], income: 100000, renewal: false };
@@ -98,12 +98,21 @@ test('deadline: open, closed and not yet open are computed from the date passed 
   assert.equal(deadlineFor(row, '2026-12-01').status, 'closed');
   assert.equal(deadlineFor({ notOpen: true }, TODAY).status, 'notyet');
   assert.equal(deadlineFor({}, TODAY).status, 'unknown');
-  assert.equal(deadlineFor(row, TODAY).checked, '2026-11-05');
+  assert.equal(deadlineFor(row, TODAY).checked, NSP_CHECKED);
   // Real rows: Assam SC closed on 15-10-2026, West Bengal SC not yet opened.
   const assam = run({ state: 'AS', cats: ['sc'] }).fits.find((f) => f.id === 'pms_sc');
   assert.equal(assam.deadline.status, 'closed');
   const wb = NSP.find((r) => /SC -West Bengal/.test(r.name));
   assert.equal(deadlineFor(wb, TODAY).status, 'notyet');
+});
+
+test('Manipur SC and OBC: NSP moved the last date from 31-10-2026 to 15-11-2026 (re-read 11 Nov 2026), so the cards are open again', () => {
+  for (const [cat, id] of [['sc', 'pms_sc'], ['obc', 'yasasvi']]) {
+    const f = run({ state: 'MN', cats: [cat] }, '2026-11-11').fits.find((x) => x.row.by === 'State of Manipur');
+    assert.ok(f, cat);
+    assert.equal(f.deadline.close, '2026-11-15');
+    assert.equal(f.deadline.status, 'open');
+  }
 });
 
 test('Punjab SC closes 15-11-2026, Delhi SC 15-02-2027; same day, different states', () => {
