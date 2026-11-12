@@ -79,6 +79,7 @@ next to every deadline. Do not edit `nsp-data.js` by hand.
 | `nsp-data.js` | Generated: every 2026-27 NSP row from Class 11 up, with student, defect, institute and state dates and guideline links. |
 | `i18n.js` | English and Hindi, same keys. No rupee figure is written in a string: limits arrive as variables. |
 | `app.js`, `index.html`, `styles.css` | The app. No framework, about 78 KB of code apart from `nsp-data.js`. |
+| `sw.js` | Opens without internet after the first visit: network first, cache only when the network fails, so online students always get the current dates and every deadline still shows the day the lists were last read. |
 | `worker.js`, `wrangler.toml`, `stats.html` | Anonymous counter and the public `/stats.html` page. |
 | `tests/` | `node --test`: every income limit inside and one rupee outside, portals, dates, text checks, Worker. |
 

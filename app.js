@@ -277,3 +277,6 @@ $('#back').onclick = () => go(-1);
 $('#lang').onclick = () => { read(); state.lang = state.lang === 'en' ? 'hi' : 'en'; applyLang(); };
 
 applyLang();
+
+// Opens offline after the first visit (sw.js): rules, dates and documents need no network.
+navigator.serviceWorker?.register('sw.js').catch(() => {});
