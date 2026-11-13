@@ -146,7 +146,7 @@ export const STRINGS = {
     n_wait_states: 'NSP notice: students of Rajasthan, Keralam and Karnataka must wait.',
     n_two_girls: 'At most two girls per family.',
     n_no_other: 'You cannot take any other Central, State or AICTE scholarship with it.',
-    n_minority: 'The three NSP lists of 2026-27, as listed on 11 Nov 2026, show no post-matric or merit-cum-means scheme of the Ministry of Minority Affairs. Below is what fits your other answers.',
+    n_minority: 'The three NSP lists of 2026-27, as listed on 13 Nov 2026, show no post-matric or merit-cum-means scheme of the Ministry of Minority Affairs. Below is what fits your other answers.',
     n_csss_fresh: 'The Central Sector Scholarship for College and University Students (PM-USP CSSS) is listed on NSP for renewal only in 2026-27, so it is not open to fresh students this year.',
     n_csss_renew: 'Renewal of PM-USP CSSS needs at least 50% marks and 75% attendance last year.',
 
@@ -373,7 +373,7 @@ export const STRINGS = {
     n_wait_states: 'NSP सूचना: राजस्थान, केरलम और कर्नाटक के छात्र इंतज़ार करें।',
     n_two_girls: 'एक परिवार की ज़्यादा से ज़्यादा दो लड़कियाँ।',
     n_no_other: 'इसके साथ कोई दूसरी केंद्र, राज्य या AICTE छात्रवृत्ति नहीं ले सकते।',
-    n_minority: '11 नवंबर 2026 को देखी गई 2026-27 की NSP की तीनों सूचियों में अल्पसंख्यक कार्य मंत्रालय की कोई पोस्ट-मैट्रिक या मेरिट-कम-मीन्स योजना नहीं है। नीचे वह है जो आपके बाकी जवाबों पर लागू हो सकता है।',
+    n_minority: '13 नवंबर 2026 को देखी गई 2026-27 की NSP की तीनों सूचियों में अल्पसंख्यक कार्य मंत्रालय की कोई पोस्ट-मैट्रिक या मेरिट-कम-मीन्स योजना नहीं है। नीचे वह है जो आपके बाकी जवाबों पर लागू हो सकता है।',
     n_csss_fresh: 'कॉलेज और विश्वविद्यालय के छात्रों के लिए केंद्रीय क्षेत्र छात्रवृत्ति (PM-USP CSSS) 2026-27 में NSP पर सिर्फ़ नवीनीकरण के लिए है, इसलिए इस साल नए छात्रों के लिए खुली नहीं है।',
     n_csss_renew: 'PM-USP CSSS के नवीनीकरण के लिए पिछले साल कम से कम 50% अंक और 75% उपस्थिति चाहिए।',
 

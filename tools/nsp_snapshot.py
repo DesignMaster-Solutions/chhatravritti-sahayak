@@ -6,7 +6,7 @@ Pre-matric schemes stay out (this tool starts at Class 11). Fails loudly if the 
 """
 import html, json, pathlib, re, subprocess, sys, tempfile
 
-CHECKED = "2026-11-11"
+CHECKED = "2026-11-13"
 BASE = "https://scholarships.gov.in"
 PRE = re.compile(r"pre[ -]?matric|class 1-10|class ix|class 1 to 10|class iii", re.I)
 

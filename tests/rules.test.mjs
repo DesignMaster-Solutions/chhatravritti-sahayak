@@ -115,6 +115,18 @@ test('Manipur SC and OBC: NSP moved the last date from 31-10-2026 to 15-11-2026 
   }
 });
 
+test('Re-read 13 Nov 2026: J&K ST is open again (10-11 moved to 20-11-2026); Himachal technical rows and YASASVI Top Class Schools got later dates', () => {
+  const jk = run({ state: 'JK', cats: ['st'] }, '2026-11-13').fits.find((x) => x.row.by === 'UT of Jammu and Kashmir');
+  assert.ok(jk);
+  assert.equal(jk.deadline.close, '2026-11-20');
+  assert.equal(jk.deadline.status, 'open');
+  const hp = NSP.filter((r) => /Technical Education Scholarship Scheme For .*Himachal/.test(r.name));
+  assert.equal(hp.length, 3);
+  for (const r of hp) assert.equal(r.close, '2026-12-22');
+  assert.equal(NSP.find((r) => /Top Class Education In Schools For OBC/.test(r.name)).close, '2026-11-30');
+  assert.equal(NSP_CHECKED, '2026-11-13');
+});
+
 test('Punjab SC closes 15-11-2026, Delhi SC 15-02-2027; same day, different states', () => {
   const pb = run({ state: 'PB', cats: ['sc'] }).fits.find((f) => f.id === 'pms_sc');
   const dl = run({ state: 'DL', cats: ['sc'] }).fits.find((f) => f.id === 'pms_sc');

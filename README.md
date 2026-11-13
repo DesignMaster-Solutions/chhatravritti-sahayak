@@ -30,7 +30,7 @@ The result shows:
 - **Cards for the schemes that may fit**, each with the rule quoted from the guideline, its
   paragraph and PDF link, where to apply, the deadline of that row on NSP as open / closed / not yet
   open (computed against today's date in IST, never hardcoded), the institute verification and
-  defect correction dates, "Checked on 11 Nov 2026 on scholarships.gov.in", and the documents
+  defect correction dates, "Checked on 13 Nov 2026 on scholarships.gov.in", and the documents
   quoted per scheme (or a link to the guideline where we did not read a list).
 - **State-run post-matric schemes**: when NSP has no row for your state and category, the card says
   "NSP does not list this scheme for your state; the state runs it; dates and rules NOT verified by
@@ -49,7 +49,7 @@ The result shows:
 - "Copy checklist", "Send on WhatsApp" and a "Did you apply?" yes / not yet box.
 
 A minority student is told that the 2026-27 NSP lists show no post-matric or merit-cum-means scheme
-of the Ministry of Minority Affairs, as listed on 11 Nov 2026, and still sees what fits their other
+of the Ministry of Minority Affairs, as listed on 13 Nov 2026, and still sees what fits their other
 answers.
 
 ## Run it
@@ -114,7 +114,13 @@ and limits: [`evidence/real-cases`](evidence/real-cases/README.md).
 The three NSP lists were read again on 11 Nov 2026 with `tools/nsp_snapshot.py`: same 106 rows, three with
 new dates. Manipur moved the student last date of its SC and OBC (PM YASASVI) post-matric rows from
 31-10-2026 to 15-11-2026, so those two cards went from closed back to open; Assam ST moved its defect and
-institute dates from 06-11-2026 to 30-11-2026. The app shows the new dates and "Checked on 11 Nov 2026".
+institute dates from 06-11-2026 to 30-11-2026. The app showed those dates from that day.
+
+Read again on 13 Nov 2026: same 106 rows, five with new dates. Jammu and Kashmir moved the student last date
+of its ST post-matric row from 10-11-2026 to 20-11-2026, so that card went from closed back to open; Himachal
+Pradesh moved its three Technical Education rows (degree, diploma, ITI) from 15-11-2026 to 22-12-2026; PM
+YASASVI Top Class Education in Schools moved from 15-11-2026 to 30-11-2026. The app shows the new dates and
+"Checked on 13 Nov 2026".
 
 G = https://scholarships.gov.in/public/schemeGuidelines/ · F = https://scholarships.gov.in/public/FAQ/
 
