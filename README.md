@@ -47,6 +47,8 @@ The result shows:
   schemes, income and caste certificates from the right authority with matching names), what to do after
   approval, helplines.
 - "Copy checklist", "Send on WhatsApp" and a "Did you apply?" yes / not yet box.
+- "Send this result to a family member": a WhatsApp link that opens straight on the same result (language
+  and tapped answers only; the app never asks for a name or a number). Opening it is not counted as a check.
 
 A minority student is told that the 2026-27 NSP lists show no post-matric or merit-cum-means scheme
 of the Ministry of Minority Affairs, as listed on 13 Nov 2026, and still sees what fits their other
@@ -224,7 +226,7 @@ them. DNT is not a Telangana category, so that card carries nothing.
 
 No account, no cookies, no answers sent anywhere: the list is computed on the phone. The Worker
 counts only the event name (`check`, `schemes` with how many were shown, `copy`, `share`,
-`applied_yes`, `applied_no`), the language and the day. Live numbers: `/stats.html`, raw JSON at
+`share_link`, `applied_yes`, `applied_no`), the language and the day. Live numbers: `/stats.html`, raw JSON at
 `/api/stats`.
 
 ## Hindi

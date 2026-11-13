@@ -16,15 +16,15 @@
 <h2>Totals since <span id="since"></span></h2>
 <table class="stats" id="totals"><tbody></tbody></table>
 <h2>By language</h2>
-<table class="stats" id="langs"><thead><tr><th></th><th>Checks</th><th>Schemes</th><th>Copied</th><th>Shared</th><th>Applied: yes</th><th>Applied: not yet</th></tr></thead><tbody></tbody></table>
+<table class="stats" id="langs"><thead><tr><th></th><th>Checks</th><th>Schemes</th><th>Copied</th><th>Shared</th><th>Result links</th><th>Applied: yes</th><th>Applied: not yet</th></tr></thead><tbody></tbody></table>
 <h2>By day (UTC)</h2>
-<table class="stats" id="days"><thead><tr><th>Day</th><th>Checks</th><th>Schemes</th><th>Copied</th><th>Shared</th><th>Applied: yes</th><th>Applied: not yet</th></tr></thead><tbody></tbody></table>
-<p class="hint">Checks = result lists shown. Schemes = schemes and state portals listed on those results, added up. Copied and Shared = taps on "Copy checklist" and "Send on WhatsApp". Applied = answers to "Did you apply?" on the result; they are not checked by us.</p>
+<table class="stats" id="days"><thead><tr><th>Day</th><th>Checks</th><th>Schemes</th><th>Copied</th><th>Shared</th><th>Result links</th><th>Applied: yes</th><th>Applied: not yet</th></tr></thead><tbody></tbody></table>
+<p class="hint">Checks = result lists shown. Schemes = schemes and state portals listed on those results, added up. Copied and Shared = taps on "Copy checklist" and "Send on WhatsApp". Result links = taps on "Send this result to a family member"; opening such a link is not counted as a check. Applied = answers to "Did you apply?" on the result; they are not checked by us.</p>
 </main>
 <footer class="wrap foot"><p><strong>Free and open source</strong>: <a href="https://github.com/DesignMaster-Solutions/chhatravritti-sahayak">github.com/DesignMaster-Solutions/chhatravritti-sahayak</a></p></footer>
 <script type="module">
-const EVENTS = ['check', 'schemes', 'copy', 'share', 'applied_yes', 'applied_no'];
-const LABEL = { check: 'Checks', schemes: 'Schemes shown', copy: 'Checklists copied', share: 'Checklists shared on WhatsApp', applied_yes: 'Did you apply? Yes', applied_no: 'Did you apply? Not yet' };
+const EVENTS = ['check', 'schemes', 'copy', 'share', 'share_link', 'applied_yes', 'applied_no'];
+const LABEL = { check: 'Checks', schemes: 'Schemes shown', copy: 'Checklists copied', share: 'Checklists shared on WhatsApp', share_link: 'Result link sent to someone else', applied_yes: 'Did you apply? Yes', applied_no: 'Did you apply? Not yet' };
 const { since, counts } = await (await fetch('/api/stats', { cache: 'no-store' })).json();
 document.getElementById('since').textContent = since;
 const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<th>${c}</th>` : `<td>${Number(c) || 0}</td>`)).join('')}</tr>`;

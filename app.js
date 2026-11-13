@@ -2,7 +2,7 @@
 import { t, fmtDate } from './i18n.js';
 import {
   eligibleSchemes, RULES, STATES, COURSES, CATS, INCOME_BANDS, NSP_CHECKED, inr,
-  G, F, NODAL, NSP_HOME, NSP_ALL,
+  G, F, NODAL, NSP_HOME, NSP_ALL, shareUrl, answersFrom,
 } from './rules.js';
 
 const $ = (s) => document.querySelector(s);
@@ -218,6 +218,7 @@ function renderResult() {
       <button type="button" class="primary" id="copy">${esc(L('copy'))}</button>
       <a class="link" id="share" href="https://wa.me/?text=${encodeURIComponent(checklist())}" target="_blank" rel="noopener">${esc(L('share'))}</a>
     </div>
+    <p><a class="link" id="pass" href="https://wa.me/?text=${encodeURIComponent(`${L('pass_text')} ${shareUrl(location.origin, a, state.lang)}`)}" target="_blank" rel="noopener">${esc(L('pass_on'))}</a></p>
     <div class="applied" id="applied">
       <p><strong>${esc(L('applied_q'))}</strong></p>
       <div class="actions"><button type="button" class="pill" data-applied="yes">${esc(L('yes'))}</button><button type="button" class="pill" data-applied="no">${esc(L('no'))}</button></div>
@@ -230,6 +231,7 @@ function renderResult() {
     track('copy');
   };
   $('#share').onclick = () => track('share');
+  $('#pass').onclick = () => track('share_link');
   document.querySelectorAll('[data-applied]').forEach((b) => {
     b.onclick = () => {
       track(`applied_${b.dataset.applied}`);
@@ -276,6 +278,9 @@ $('#next').onclick = () => go(1);
 $('#back').onclick = () => go(-1);
 $('#lang').onclick = () => { read(); state.lang = state.lang === 'en' ? 'hi' : 'en'; applyLang(); };
 
+// A shared link opens on its result (not counted as a check).
+const shared = answersFrom(location.search);
+if (shared) { Object.assign(a, shared); state.step = STEPS.length - 1; }
 applyLang();
 
 // Opens offline after the first visit (sw.js): rules, dates and documents need no network.

@@ -250,3 +250,24 @@ export function eligibleSchemes(a, today) {
   fits.sort((x, y) => ORDER[x.deadline.status] - ORDER[y.deadline.status]);
   return { fits, stateRoutes, unread, otherCentral, notes };
 }
+
+export const EXTRA_KEYS = ['girl', 'aicte', 'orphan', 'swanath', 'ner12', 'jk12', 'nmms', 'csss'];
+
+// Result link: only tapped answers travel; null on any unknown one.
+export function shareUrl(origin, a, lang) {
+  const p = new URLSearchParams({ lang, course: a.course, state: a.state, cats: a.cats.join(','), income: a.income.id, renewal: a.renewal ? '1' : '0' });
+  const x = EXTRA_KEYS.filter((k) => a.x[k]);
+  if (x.length) p.set('x', x.join(','));
+  return `${origin}/?${p}`;
+}
+
+export function answersFrom(search) {
+  const p = new URLSearchParams(search);
+  const list = (k) => (p.get(k) || '').split(',').filter(Boolean);
+  const cats = list('cats');
+  const x = list('x');
+  const income = INCOME_BANDS.find((b) => b.id === p.get('income'));
+  const ok = COURSES.includes(p.get('course')) && STATES.some((s) => s.code === p.get('state')) && income
+    && cats.length && cats.every((c) => CATS.includes(c)) && x.every((k) => EXTRA_KEYS.includes(k)) && ['0', '1'].includes(p.get('renewal'));
+  return ok ? { course: p.get('course'), state: p.get('state'), cats, income, renewal: p.get('renewal') === '1', x: Object.fromEntries(x.map((k) => [k, true])) } : null;
+}

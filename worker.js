@@ -1,7 +1,7 @@
 // Chhatravritti Sahayak Worker: static assets are served directly; only /api/* runs here.
 // Anonymous counter (Durable Object): event name, language, day and, for "schemes", how many were shown.
 // Never answers, state, category, income, caste or IPs.
-const EVENTS = new Set(['check', 'schemes', 'copy', 'share', 'applied_yes', 'applied_no']);
+const EVENTS = new Set(['check', 'schemes', 'copy', 'share', 'share_link', 'applied_yes', 'applied_no']);
 const LANGS = new Set(['en', 'hi']);
 const count = (x) => Number.isInteger(x) && x >= 0 && x <= 200;
 

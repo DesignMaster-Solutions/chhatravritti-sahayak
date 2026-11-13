@@ -19,7 +19,7 @@ const envWith = (c) => ({
 
 test('every event is counted in total, per language and per day; schemes adds the number shown', async () => {
   const c = newCounter();
-  for (const e of ['check', 'copy', 'share', 'applied_yes', 'applied_no']) {
+  for (const e of ['check', 'copy', 'share', 'share_link', 'applied_yes', 'applied_no']) {
     assert.equal((await c.fetch(post({ event: e, lang: 'hi' }))).status, 204, e);
   }
   assert.equal((await c.fetch(post({ event: 'schemes', lang: 'en', n: 3 }))).status, 204);
