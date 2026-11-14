@@ -30,7 +30,7 @@ The result shows:
 - **Cards for the schemes that may fit**, each with the rule quoted from the guideline, its
   paragraph and PDF link, where to apply, the deadline of that row on NSP as open / closed / not yet
   open (computed against today's date in IST, never hardcoded), the institute verification and
-  defect correction dates, "Checked on 13 Nov 2026 on scholarships.gov.in", and the documents
+  defect correction dates, "Checked on 14 Nov 2026 on scholarships.gov.in", and the documents
   quoted per scheme (or a link to the guideline where we did not read a list).
 - **State-run post-matric schemes**: when NSP has no row for your state and category, the card says
   "NSP does not list this scheme for your state; the state runs it; dates and rules NOT verified by
@@ -51,7 +51,7 @@ The result shows:
   and tapped answers only; the app never asks for a name or a number). Opening it is not counted as a check.
 
 A minority student is told that the 2026-27 NSP lists show no post-matric or merit-cum-means scheme
-of the Ministry of Minority Affairs, as listed on 13 Nov 2026, and still sees what fits their other
+of the Ministry of Minority Affairs, as listed on 14 Nov 2026, and still sees what fits their other
 answers.
 
 ## Run it
@@ -123,6 +123,15 @@ of its ST post-matric row from 10-11-2026 to 20-11-2026, so that card went from 
 Pradesh moved its three Technical Education rows (degree, diploma, ITI) from 15-11-2026 to 22-12-2026; PM
 YASASVI Top Class Education in Schools moved from 15-11-2026 to 30-11-2026. The app shows the new dates and
 "Checked on 13 Nov 2026".
+
+Read again on 14 Nov 2026: same 106 rows, three changed. Ladakh moved the student last date of its ST
+post-matric row from 10-11-2026 to 30-11-2026, so that card went from closed back to open; Puducherry moved
+its OBC post-matric row from 16-11-2026 to 30-11-2026. PM-USP CSSS, listed until 13 Nov as "Scheme Open from
+01-06-2026 (for Renewal)", now reads "Scheme : NOT YET OPENED" next to "Student Application Open till :
+30-11-2026". The app used to print only "Not open yet." for such a row; it now prints the last date NSP lists
+as well, and the note to fresh students says what NSP showed on each day instead of "renewal only". The app
+shows "Checked on 14 Nov 2026". If `curl` cannot verify the NSP certificate chain (exit 60), run the snapshot
+with `CURL_CA_BUNDLE` pointing at an up-to-date CA bundle; do not turn verification off.
 
 G = https://scholarships.gov.in/public/schemeGuidelines/ · F = https://scholarships.gov.in/public/FAQ/
 

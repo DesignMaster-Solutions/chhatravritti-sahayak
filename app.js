@@ -31,7 +31,6 @@ const box = (name, value, label, checked) => `<label class="opt"><input type="ch
 const bandLabel = (b) => (b.min === 0 ? L('band_upto', { max: inr(b.max) })
   : b.max === Infinity ? L('band_above', { min: inr(b.min - 1) }) : L('band_range', { min: inr(b.min), max: inr(b.max) }));
 
-// Optional questions, shown only where they can change the list.
 const EXTRAS = [
   ['girl', () => true], ['aicte', () => a.course === 'iti' || a.course === 'ug'], ['orphan', () => true],
   ['swanath', () => a.course === 'iti' || a.course === 'ug'], ['ner12', () => a.course === 'ug' && !a.renewal],
@@ -72,7 +71,6 @@ function show(focus = true) {
   if (focus) { document.querySelector(`[data-step="${name}"] h1, #result h1`)?.focus(); window.scrollTo(0, 0); }
 }
 
-// Reads the current screen into `a`; returns an error key or ''.
 function read() {
   const name = STEPS[state.step];
   const val = (n) => document.querySelector(`input[name=${n}]:checked`)?.value;
@@ -114,7 +112,7 @@ let last = null;
 
 const statusText = (d) => (d.status === 'open' ? L('dl_open', { date: D(d.close) })
     : d.status === 'closed' ? L('dl_closed', { date: D(d.close) })
-      : d.status === 'notyet' ? (d.open ? L('dl_notyet_from', { date: D(d.open) }) : L('dl_notyet'))
+      : d.status === 'notyet' ? (d.open ? L('dl_notyet_from', { date: D(d.open) }) : d.close ? L('dl_notyet_till', { date: D(d.close) }) : L('dl_notyet'))
         : L('dl_unknown'));
 
 function deadlineLines(d, full = true) {
@@ -250,7 +248,6 @@ function trackResult() {
   track('schemes', { n: last.fits.length + last.stateRoutes.length });
 }
 
-// Plain text for the clipboard and WhatsApp: name, deadline, where, documents, the 4 checks.
 function checklist() {
   const { fits, stateRoutes } = last;
   const lines = [`*${L('list_head')}*`, ''];
@@ -269,7 +266,6 @@ function checklist() {
   return lines.join('\n');
 }
 
-// Radios move on by themselves: one tap per question on a phone.
 document.addEventListener('change', (e) => {
   if (e.target.type === 'radio') setTimeout(() => go(1), 150);
 });
@@ -278,7 +274,6 @@ $('#next').onclick = () => go(1);
 $('#back').onclick = () => go(-1);
 $('#lang').onclick = () => { read(); state.lang = state.lang === 'en' ? 'hi' : 'en'; applyLang(); };
 
-// A shared link opens on its result (not counted as a check).
 const shared = answersFrom(location.search);
 if (shared) { Object.assign(a, shared); state.step = STEPS.length - 1; }
 applyLang();

@@ -124,7 +124,17 @@ test('Re-read 13 Nov 2026: J&K ST is open again (10-11 moved to 20-11-2026); Him
   assert.equal(hp.length, 3);
   for (const r of hp) assert.equal(r.close, '2026-12-22');
   assert.equal(NSP.find((r) => /Top Class Education In Schools For OBC/.test(r.name)).close, '2026-11-30');
-  assert.equal(NSP_CHECKED, '2026-11-13');
+});
+
+test('Re-read 14 Nov 2026: Ladakh ST is open again (10-11 moved to 30-11-2026), Puducherry OBC moved 16-11 to 30-11, CSSS shows as not yet opened', () => {
+  const la = NSP.find((r) => r.by === 'UT of Ladakh' && /Post Matric Scholarship For ST/.test(r.name));
+  assert.equal(la.close, '2026-11-30');
+  assert.equal(deadlineFor(la, '2026-11-14').status, 'open');
+  assert.equal(NSP.find((r) => r.by === 'UT of Puducherry' && /OBC/.test(r.name)).close, '2026-11-30');
+  const csss = NSP.find((r) => /\(CSSS\)/.test(r.name));
+  assert.equal(deadlineFor(csss, '2026-11-14').status, 'notyet');
+  assert.equal(csss.close, '2026-11-30');
+  assert.equal(NSP_CHECKED, '2026-11-14');
 });
 
 test('Punjab SC closes 15-11-2026, Delhi SC 15-02-2027; same day, different states', () => {
@@ -358,4 +368,15 @@ test('Telangana SC, ST, BC and EBC: state route carries the 2026-27 documents, t
     assert.equal(r.stateRoutes.length, 1, String(income));
     assert.equal(r.stateRoutes[0].read.ceil, 250000);
   }
+});
+
+test('not yet open on NSP but with a last date listed: the student still sees that date', async () => {
+  const { STRINGS } = await import('../i18n.js');
+  const { readFileSync } = await import('node:fs');
+  // Real row on 14 Nov 2026: CSSS shows "Scheme : NOT YET OPENED" next to "Student Application Open till : 30-11-2026".
+  const d = deadlineFor({ notOpen: true, close: '2026-11-30' }, TODAY);
+  assert.equal(d.status, 'notyet');
+  assert.equal(d.close, '2026-11-30');
+  for (const l of ['en', 'hi']) assert.ok(STRINGS[l].dl_notyet_till?.includes('{date}'), l);
+  assert.match(readFileSync(new URL('../app.js', import.meta.url), 'utf8'), /d\.close \? L\('dl_notyet_till', \{ date: D\(d\.close\) \}\)/);
 });
