@@ -33,3 +33,10 @@ test('a missing or unknown answer opens the first question, not a wrong result',
   assert.equal(answersFrom(withv('x', 'girl,admin')), null);
   assert.deepEqual(answersFrom(without('x')).x, {});
 });
+
+// Seen on a real phone (384 px): the long Hindi label did not wrap and the page scrolled sideways.
+test('the family link wraps instead of pushing the page wider than the phone', async () => {
+  const { readFileSync } = await import('node:fs');
+  const css = readFileSync(new URL('../styles.css', import.meta.url), 'utf8');
+  assert.match(css, /#pass\s*\{[^}]*white-space:\s*normal/);
+});

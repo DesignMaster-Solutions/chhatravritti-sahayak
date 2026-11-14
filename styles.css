@@ -79,13 +79,13 @@ button, .primary, .link, .pill { font: inherit; white-space: nowrap; cursor: poi
 .primary:active { transform: scale(.97); }
 .link { background: none; border: 0; color: var(--ink-2); text-decoration: underline; padding: .6rem .25rem; min-height: 3rem; display: inline-flex; align-items: center; }
 .pill { background: #fff; color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; padding: .5rem 1.25rem; min-height: 2.75rem; }
+#pass { white-space: normal; }
 .applied .actions { justify-content: flex-start; margin-top: .25rem; }
 @media (max-width: 400px) {
   .primary { padding: .75rem 1rem; }
   .wrap { padding: 0 .75rem; }
 }
 
-/* Result */
 .lead { font-size: 1.1rem; font-weight: 600; margin: 0 0 .25rem; }
 .note { background: #fff7df; border: 1px solid #e6c56a; padding: .6rem .8rem; border-radius: 4px; }
 .card {
@@ -118,7 +118,6 @@ summary { font-weight: 700; color: var(--ink); cursor: pointer; padding: .25rem 
 .foot { padding: 1rem; font-size: .92rem; }
 .foot p { margin: .25rem 0; }
 
-/* Stats page */
 table.stats { border-collapse: collapse; width: 100%; background: #fff; margin-bottom: 1rem; }
 table.stats th, table.stats td { border: 1px solid var(--line); padding: .4rem .6rem; text-align: left; }
 table.stats td { text-align: right; font-variant-numeric: tabular-nums; }
