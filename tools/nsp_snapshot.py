@@ -8,11 +8,14 @@ import html, json, pathlib, re, subprocess, sys, tempfile
 
 CHECKED = "2026-11-14"
 BASE = "https://scholarships.gov.in"
+HOMEBREW_CA = "/opt/homebrew/etc/ca-certificates/cert.pem"
 PRE = re.compile(r"pre[ -]?matric|class 1-10|class ix|class 1 to 10|class iii", re.I)
 
 
 def curl(jar, *args):
-    return subprocess.run(["curl", "-sSL", "-m", "60", "-A", "Mozilla/5.0", "-c", jar, "-b", jar, *args],
+    # macOS system curl does not trust the emSign root NSP is signed with (exit 60); the Homebrew bundle does
+    ca = ["--cacert", HOMEBREW_CA] if pathlib.Path(HOMEBREW_CA).exists() else []
+    return subprocess.run(["curl", "-sSL", "-m", "60", "-A", "Mozilla/5.0", *ca, "-c", jar, "-b", jar, *args],
                           check=True, capture_output=True, text=True).stdout
 
 
