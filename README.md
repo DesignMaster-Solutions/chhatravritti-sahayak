@@ -130,7 +130,9 @@ its OBC post-matric row from 16-11-2026 to 30-11-2026. PM-USP CSSS, listed until
 01-06-2026 (for Renewal)", now reads "Scheme : NOT YET OPENED" next to "Student Application Open till :
 30-11-2026". The app used to print only "Not open yet." for such a row; it now prints the last date NSP lists
 as well, and the note to fresh students says what NSP showed on each day instead of "renewal only". The app
-shows "Checked on 14 Nov 2026". If `curl` cannot verify the NSP certificate chain (exit 60), run the snapshot
+shows "Checked on 14 Nov 2026". A second read the same day (13:45 IST) found one more change: the Labour
+Ministry row for wards of beedi, cine and mine workers moved its defect and institute verification dates from
+15-11-2026 to 30-11-2026 and the state date to 15-12-2026. If `curl` cannot verify the NSP certificate chain (exit 60), run the snapshot
 with `CURL_CA_BUNDLE` pointing at an up-to-date CA bundle; do not turn verification off.
 
 G = https://scholarships.gov.in/public/schemeGuidelines/ · F = https://scholarships.gov.in/public/FAQ/
