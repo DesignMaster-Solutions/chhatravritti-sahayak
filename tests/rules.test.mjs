@@ -134,7 +134,7 @@ test('Re-read 14 Nov 2026: Ladakh ST is open again (10-11 moved to 30-11-2026), 
   const csss = NSP.find((r) => /\(CSSS\)/.test(r.name));
   assert.equal(deadlineFor(csss, '2026-11-14').status, 'notyet');
   assert.equal(csss.close, '2026-11-30');
-  assert.equal(NSP_CHECKED, '2026-11-14');
+  assert.equal(NSP_CHECKED, '2026-11-15');
 });
 
 test('Punjab SC closes 15-11-2026, Delhi SC 15-02-2027; same day, different states', () => {

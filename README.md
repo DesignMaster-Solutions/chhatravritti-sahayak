@@ -30,7 +30,7 @@ The result shows:
 - **Cards for the schemes that may fit**, each with the rule quoted from the guideline, its
   paragraph and PDF link, where to apply, the deadline of that row on NSP as open / closed / not yet
   open (computed against today's date in IST, never hardcoded), the institute verification and
-  defect correction dates, "Checked on 14 Nov 2026 on scholarships.gov.in", and the documents
+  defect correction dates, "Checked on 15 Nov 2026 on scholarships.gov.in", and the documents
   quoted per scheme (or a link to the guideline where we did not read a list).
 - **State-run post-matric schemes**: when NSP has no row for your state and category, the card says
   "NSP does not list this scheme for your state; the state runs it; dates and rules NOT verified by
@@ -132,7 +132,8 @@ its OBC post-matric row from 16-11-2026 to 30-11-2026. PM-USP CSSS, listed until
 as well, and the note to fresh students says what NSP showed on each day instead of "renewal only". The app
 shows "Checked on 14 Nov 2026". A second read the same day (13:45 IST) found one more change: the Labour
 Ministry row for wards of beedi, cine and mine workers moved its defect and institute verification dates from
-15-11-2026 to 30-11-2026 and the state date to 15-12-2026. If `curl` cannot verify the NSP certificate chain (exit 60), run the snapshot
+15-11-2026 to 30-11-2026 and the state date to 15-12-2026. Read again on 15 Nov 2026: same 106 rows, no date
+changed; the app shows "Checked on 15 Nov 2026". If `curl` cannot verify the NSP certificate chain (exit 60), run the snapshot
 with `CURL_CA_BUNDLE` pointing at an up-to-date CA bundle; do not turn verification off.
 
 G = https://scholarships.gov.in/public/schemeGuidelines/ · F = https://scholarships.gov.in/public/FAQ/
